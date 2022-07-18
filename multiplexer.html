@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplexer</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<body style="background-color:powderblue">
+    <div class="container">
+        <center><h1 style="color:blue"><i>Multiplexer</i></h1></center><br>
+        <div>
+        <i><h4>A 2-to-1(2:1) multiplexer consists of two inputs D0 and D1, one select input S and one output Y. Depending on the select signal, the output is connected to either of the inputs.
+             Since there are two input signals, only two ways are possible to connect the inputs to the outputs, so one select is needed to do these operations.</h4></i>
+        </div><br>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+               <label for="input" class="form-label fs-3" style="color:green">Enter Select line </label>
+            </div>
+            <div class="col-sm-2">
+               <input type="number" class="form-control" id="a" onchange="fun()">
+            </div><br><br>
+        </div><br>
+        <h3  class="alert alert-primary" id="out" style="width:50%; margin-left:100px ; margin-top: 30px;"></h3>
+        <div>
+        <button class="badge bg-primary" id="result" onchange = "disp()"> Detailed Answer</button>
+        </div>
+
+        <script>
+            function fun(){
+                var D0 = 0;
+                var D1 = 1;
+                var S =document.getElementById("a").value;
+                if(S == 0)
+                    document.getElementById("out").innerHTML=`The selected input is Do `
+                else if(S == 1)
+                    document.getElementById("out").innerHTML=`The selected input is D1`
+                else
+                    document.getElementById("out").innerHTML=`Enter the Valid Input...`
+            }
+            function disp(){
+                // document.getElementById().innerHTML=;
+                // document.getElementById().innerHTML=;
+
+            }
+        </script>
+</body>
+</html>

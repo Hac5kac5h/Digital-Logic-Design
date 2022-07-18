@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oneandtwocompliment</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<body style="background-color:powderblue">
+    <div class="container">
+        <h1 style="color:blue">One's And Two's Compliment of a Number</h1><br>
+        <label for="input" class="form-label" style="margin-left:35px ; font-size: x-large;">Enter Number:</label>
+        <input type="binaryOnly" class="form-control" id="a" style="border-radius:5px ; font-size: large; width:max-content; margin-left: 195px; margin-top: -42px; " onchange="fun()">
+        <br><br>
+
+        <h4>1's Compliment:  </h4>
+        <h4 id="b" style="margin-left:180px; margin-top: -33px;"></h4><br><br>
+        <h4>2's Compliment:  </h4>
+        <h4 id="c" style="margin-left:180px; margin-top: -33px;"></h4><br>
+        <button type="button" class="btn btn-primary" onclick="disp()">Detailed Answer</button>
+        <div class="detailAnswer" id="resultId" style="font-size:x-large">
+        
+        </div>
+    </div>
+        <script text="type/javascript">
+            function fun(){
+                document.getElementById("resultId").innerHTML='';
+                document.getElementById("b").innerHTML ='';
+                document.getElementById("c").innerHTML ='';
+                let x=document.getElementById("a").value;
+                // let r=0;
+                // let p = ""
+                // for(i=0; i<x.length; i++) {
+                //     s += (x[i] == '1') ? '0' : '1';
+                // }
+                document.getElementById("b").innerHTML += ones(x);
+                
+                document.getElementById("c").innerHTML += add(ones(x),'1').padStart(x.length,'0');
+                // r=x;
+            }
+            function ones(y) {
+                s = '';
+                for(i=0; i<y.length; i++) {
+                    s += (y[i] == '1') ? '0' : '1';
+                }
+                return s;
+            }
+            function add(p,q){
+                let a= parseInt(p,2);
+                let b= parseInt(q,2);
+                c = a+b;
+                return c.toString(2);
+            }
+            function disp(){
+                const p=document.getElementById("a").value;
+                let q=''.padStart(p.length,'1');
+                t="1"
+                res=''
+                // let e=parseInt(q,2);
+                // let f=parseInt(p,2);
+                n=`Given input is :${p}<br>`
+                res+=` 1's Compliment is: ${q} - ${p}=${ones(p)}<br>`
+                res+=` 2's Compliment is: ${ones(p)} + ${t.padStart(p.length,'0')} =${add(ones(p),'1').padStart(p.length,'0')}<br>`
+            document.getElementById("resultId").innerHTML+=n
+            document.getElementById("resultId").innerHTML+=res
+            document.getElementById("a").value=""
+            
+            
+        }
+            
+        </script>
+</body>
+</html>

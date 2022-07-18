@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8421Code</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<body style="background-color:powderblue">
+    <div class="container">
+        <center><h1 style="color:blue"><i>Decimal to 8421 Code</i></h1></center><br>
+        <input type="number" id="a" style="border-radius: 7px; border: 3px solid; margin-left: 30px; " placeholder="input" onchange="fun()">
+        
+        <button type="button" class="btn btn-primary" onchange="fun()">Submit</button><br><br>
+        <h3 class="text-dark" id="result" style="margin-left:75px ; font-size:x-large;"></h3><br>
+        <button class="badge bg-primary" onclick="disp()" style="font-size:large ; margin-left:30px ;"><em>Detailed Answer</em></button><br><br>
+        <div class="detailAnswer" id="resultId" style="font-size:x-large; margin-left:30px;" >
+        
+        </div>
+    </div>
+    <script>
+        var p=0;
+        function fun(){
+            let x=document.getElementById("a").value;
+            let y=Number(x).toString(2);
+            if(x>16)
+                document.getElementById('result').innerText=`Entered value ${x} is invalid.....`;
+            else {
+                document.getElementById('result').innerText=`Value of Entered Number ${x} in 8421 code is : ` + y;
+            }
+            p=y;
+        }
+        function disp(){
+            var sum="";
+            var r=document.getElementById("a").value;
+            var z=String(p);
+            let s=z.length;
+            for (i=0; i<4-s; i++)
+                z = '0' + z;
+                k=`The 8421 Code of ${r} is ${z} <br> Conversion of 8421 code to decimal by multiplying with their weights is: `
+            num=z.length;
+            console.log(num);
+            for(i=0;i<=(z.length-2);i +=1){
+                let p=z[i];
+                o=Math.pow(2,num-1)
+                sum +=`${p} * ${o} +`;
+                num=num-1;
+            }
+            val =z[i]
+            sum +=`${val}*1 = ${r}`;
+               
+
+            document.getElementById("resultId").innerHTML+=k;
+            document.getElementById("resultId").innerHTML+=sum;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DecConversion</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        body{
+            background-color: powderblue;
+        }
+        .main{
+            display:flex;
+            flex-direction: row;
+        }
+        .head{
+            width:70%
+        }
+        .tail{
+            width:30%
+        }
+        .col-md-10{
+            margin-left: 50px;
+            color: blue;
+        }
+        .numInp{
+            border-radius: 5px;
+            border:3px solid;
+            margin-bottom: 50px;
+            margin-left: 20px;
+        }
+        .badge{
+            margin-left: 30px;
+            font-size: large;
+        }
+        #resultId{
+            margin-left: 30px;
+            display:none;
+        }
+        .text-dark{
+            margin-left: 30px;
+        }
+        h3{
+            margin-left: 30px;
+        }
+
+    </style>
+</head>
+    <div class="main">
+        <div class="head">
+    <h1 class="col col-md-10"><b><i> Binary to Decimal Conversions!</i><b></b></h1><br>
+    <input type="number" id="a" onchange="fun1()" class="numInp" />
+    <button type="button" class="btn btn-success" onclick="fun1()">Submit</button><br><br>
+    <h3 class="text-success" id="result"></h3>
+    <br><br>
+    <div style="margin-left:20px"
+    <i><h5>Binary to decimal conversion is done to convert a number in a binary number system (base-2) to a number in a decimal number system (base-10).</h5>
+        <h5>It is very necessary to understand the binary to decimal conversion for computer programming applications.</h5>
+   <br>
+   <h5>The decimal number is equal to the sum of binary digits (dn) times their power of 2 (2^n):
+   
+       decimal = d0×2^0 + d1×2^1 + d2×2^2 + ...</h5></i>
+       </div>
+    <br>
+    <button class="badge bg-primary" onclick="disp()" ><em>Detailed Answer</em></button>
+    <br>
+    <div class="detailAnswer" id="resultId" style="font-size:x-large">
+        
+   </div>
+   
+    </div>
+<script type="text/javascript">
+    var n2 =0;
+    var res=0;
+
+   function fun1() {
+    document.getElementById("resultId").innerHTML=''
+        //let t1=[10];
+        const n1 = document.getElementById("a").value;
+    //    t1.map(x=>document.getElementById('resp').innerText = `Value of Entered Number ${n1} in Base ${x} is `+ Number(n1).toString(x));
+    document.getElementById('result').innerText = `Value of Entered Number ${n1} in Base 10 is `+ parseInt(Number(n1),2).toString(10);
+    res=parseInt(Number(n1),2).toString(10);
+    n2 = n1;
+    }
+    function disp(){
+        var x=String(n2)
+
+        sum="<br>Conversion of Binary to Decimal is:<br>"
+
+        num=x.length
+        for(i=0;i <=(x.length-2);i +=1){
+            let x1=x[i]
+            y=Math.pow(2,num - 1)
+            sum +=`${x1}*${y}+`;
+            num = num - 1
+        }
+        val = x[i]
+        sum += `${val}*1  =  ${res}`;
+        document.getElementById("resultId").innerHTML += sum;
+        document.getElementById("resultId").style.display="block";
+        document.getElementById("a").value='';
+
+
+    }
+</script>
+
+
+</body>
+</html>

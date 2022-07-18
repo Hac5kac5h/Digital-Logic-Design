@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCDExcess Code</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<body style="background-color:powderblue">
+    <div class="container">
+        <center><h1 style="color:blue"><i>BCD and Excess Code</i></h1></center><br>
+        <input type="number" id="a" style="border-radius: 7px; border: 3px solid; margin-left: 50px; " placeholder="input" onchange="fun()">
+        
+        <button type="button" class="btn btn-primary" onchange="fun()">Submit</button><br><br>
+        <h3 class="text-dark" id="result1" style="margin-left:75px ; font-size:x-large;"></h3><br>
+        <!-- <h3 class="text-dark" id="result2" style="margin-left:280px ; font-size:x-large;"></h3><br> -->
+        <h3 class="text-dark" id="result3" style="margin-left:75px ; font-size:x-large;"></h3><br>
+
+        
+        <button type="button" class="btn btn-primary" onclick="disp()">Detailed Answer</button>
+        <h3 class="text-dark" id="result0" style="margin-left:75px ; font-size:x-large;"></h3><br>
+        <h3 class="text-dark" id="resulta" style="margin-left:75px ; font-size:x-large;"></h3><br>
+        <h3 class="text-dark" id="resultb" style="margin-left:255px ; font-size:x-large;"></h3><br>
+        <h3 class="text-dark" id="resultc" style="margin-left:75px ; font-size:x-large;"></h3><br>     
+    </div>
+    <script>
+        function fun(){
+            var x=document.getElementById("a").value;
+            var dict = {'0':'0000','1':'0001','2':'0010','3':'0011','4':'0100','5':'0101','6':'0110','7':'0111','8':'1000',
+                        '9':'1001','10':'1010','11':'1011','12':'1100'}
+            document.getElementById("result1").innerHTML =`BCD code of ${x} is :`
+            //document.getElementById("result2").innerHTML =`+`
+            document.getElementById("result3").innerHTML =`XS3 code of ${x} is :`
+            for(i=0;i<x.length;i++){
+                var val = String(Number(x[i])+3)
+                document.getElementById("result1").innerHTML += (dict[x[i]] + " ");
+                //document.getElementById("result2").innerHTML += ('0011 ');
+                document.getElementById("result3").innerHTML += (dict[val] + " ");
+            }
+            var y=(dict[x[i]] + " ");
+        }
+        function disp(){
+            var x=document.getElementById("a").value;
+            var dict = {'0':'0000','1':'0001','2':'0010','3':'0011','4':'0100','5':'0101','6':'0110','7':'0111','8':'1000',
+                        '9':'1001','10':'1010','11':'1011','12':'1100'}
+            document.getElementById("resulta").innerHTML =`BCD code of ${x} is :`
+            document.getElementById("resultb").innerHTML =`+`
+            document.getElementById("resultc").innerHTML =`XS3 code of ${x} is :`
+            for(i=0;i<x.length;i++){
+                var val = String(Number(x[i])+3)
+                document.getElementById("result0").innerHTML =`Given Input is : ${x}`
+                document.getElementById("resulta").innerHTML += (dict[x[i]] + " ");
+                document.getElementById("resultb").innerHTML += (' 0011 ');
+                document.getElementById("resultc").innerHTML += (dict[val] + " ");
+            }
+            var y=(dict[x[i]] + " ");
+        }
+    </script>
+</body>
+</html>
