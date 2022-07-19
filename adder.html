@@ -125,10 +125,12 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
         }
         
         function disp1() {
-            // document.getElementById("detail2").style.display = "none";
-            document.getElementById("hide").style.display = "block";
-            document.getElementById("inp1").style.display = "block";
-            document.getElementById("out1").style.display = "block";
+            document.getElementById("detail1").style.display = "inline-block";
+
+            document.getElementById("detail2").style.display = "none";
+            document.getElementById("hide").style.display = "inline-block";
+            document.getElementById("inp1").style.display = "inline-block";
+            document.getElementById("out1").style.display = "inline-block";
             document.getElementById("1").innerHTML=`<p>${r}</p>`
             document.getElementById("2").innerHTML=`<p>${t}</p>`
             document.getElementById("3").innerHTML=`<p>${c}</p>`
@@ -136,10 +138,12 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
 
         }
         function disp2(){
+            document.getElementById("detail2").style.display = "inline-block";
+
             document.getElementById("detail1").style.display = "none";
-            document.getElementById("hid").style.display = "block";
-            document.getElementById("inp2").style.display = "block";
-            document.getElementById("out2").style.display = "block";
+            document.getElementById("hid").style.display = "inline-block";
+            document.getElementById("inp2").style.display = "inline-block";
+            document.getElementById("out2").style.display = "inline-block";
             document.getElementById("5").innerHTML=`<p>${r}</p>`
             document.getElementById("6").innerHTML=`<p>${t}</p>`
             document.getElementById("7").innerHTML=`<p>${c}</p>`

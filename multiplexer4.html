@@ -14,8 +14,8 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
     <div class="container">
         <center><h1 style="color:blue"><i> 4 : 1 Multiplexer</i></h1></center><br>
         <div>
-        <i><h4>A 2-to-1(2:1) multiplexer consists of two inputs D0 and D1, one select input S and one output Y. Depending on the select signal, the output is connected to either of the inputs.
-             Since there are two input signals, only two ways are possible to connect the inputs to the outputs, so one select is needed to do these operations.</h4></i>
+        <i><h4>An 4-to-1 multiplexer consists of four data inputs D0 through D3, two input select lines S0 through S1 and a single output line Y. 
+            Depending on the select lines combinations, multiplexer selects the inputs.</h4></i>
         </div><br>
         <div class="row">
             <div class="col-sm-1"></div>
@@ -40,11 +40,15 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
             function fun(){
                 var So = document.getElementById("a").value;
                 var S1 = document.getElementById("b").value;
+                if((So == 0 || So == 1) && (S1 == 0 || S1 == 1)){
                 c=So + S1;
                 
                 
                 
                 document.getElementById("submit").innerHTML=`The Output Signal is ${"D"+parseInt(c,2)}`
+                }
+                else
+                    document.getElementById("submit").innerHTML=`The Output Signal is Undefined`;
             }
             function disp(){
                 // document.getElementById().innerHTML=;

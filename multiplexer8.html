@@ -14,8 +14,8 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
     <div class="container">
         <center><h1 style="color:blue"><i>8 : 1 Multiplexer</i></h1></center><br>
         <div>
-        <i><h4>A 2-to-1(2:1) multiplexer consists of two inputs D0 and D1, one select input S and one output Y. Depending on the select signal, the output is connected to either of the inputs.
-             Since there are two input signals, only two ways are possible to connect the inputs to the outputs, so one select is needed to do these operations.</h4></i>
+        <i><h4>An 8-to-1 multiplexer consists of eight data inputs D0 through D7, three input select lines S0 through S2 and a single output line Y.
+             Depending on the select lines combinations, multiplexer selects the inputs.</h4></i>
         </div><br>
         <div class="row">
             <div class="col-sm-1"></div>
@@ -31,11 +31,11 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
              <div class="col-sm-2">
                 <input type="number" class="form-control" id="c" onchange="fun()">
              </div><br><br>
-             <h3  class="alert alert-primary" id="submit" style="width:50%; margin-left:20px ; margin-top: 30px;"></h3>
+             <h3  class="alert alert-primary" id="submit" style="width:50%; margin-left:100px ; margin-top: 30px;"></h3>
         </div><br>
         <h4 id="out" style="margin-left:20%" ></h4><br>
         <div>
-        <button class="badge bg-primary" id="result" onchange = "disp()"> Detailed Answer</button>
+        <button class="badge bg-primary" id="result" onchange = "disp()" style="font-size:large"> Detailed Answer</button>
         </div>
 
         <script>
@@ -43,11 +43,13 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
                 var So = document.getElementById("a").value;
                 var S1 = document.getElementById("b").value;
                 var S2 = document.getElementById("c").value;
-                c=So + S1 + S2;
+                if((So == 0 || So == 1) && (S1 == 0 || S1 == 1) && (S2 == 0 || S2 == 1)){
+                    c=So + S1 + S2;
                 
-                var t={'000':'Do' , '001':'D1' , '010':'D2' , '011':'D3' ,'100':'D4' , '101':'D5' , '110':'D6' , '111':'D7'}
-                
-                document.getElementById("submit").innerHTML=`The Output Signal is ${t[c]}`
+                    document.getElementById("submit").innerHTML=`The Output Signal is ${"D"+parseInt(c,2)}`
+                }
+                else
+                    document.getElementById("submit").innerHTML=`The Output Signal is Undefined`;
             }
             function disp(){
                 // document.getElementById().innerHTML=;
