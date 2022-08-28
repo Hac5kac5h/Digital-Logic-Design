@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlipFlops</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<body style="background-color:powderblue">
+    <div class="container">
+        <center><h1 style="color:blue"><i>J K-Flip Flop</i></h1></center><br>
+        <div class="Explaination">
+            <h4>
+            <p>The SR Flip Flop or Set-Reset flip flop has lots of advantages. But, it has the following switching problems:</p>
+            <ol><li> When Set 'S' and Reset 'R' inputs are set to 0, this condition is always avoided.</li>
+            <li> When the Set or Reset input changes their state while the enable input is 1, the incorrect latching action occurs.</li></ol>
+            <p> The JK Flip Flop removes these two drawbacks of SR Flip Flop.</p>
+                <p>the JK flip-flop has four possible input combinations, i.e., 1, 0, "no change" and "toggle".</p> 
+                    <p>The symbol of JK flip flop is the same as SR Bistable Latch except for the addition of a clock input.</p>
+
+            </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2">
+           <label for="input" class="form-label fs-3" style="color:green">Enter J , K values </label>
+        </div>
+        <div class="col-sm-2">
+           <input type="number" min="0" max="1" class="form-control" id="a" >
+           </div >
+           <div class="col-sm-2">
+           <input type="number" min="0" max="1" class="form-control" id="b" onchange="fun()">
+        </div><br><br>
+        <h3  class="alert alert-primary" id="submit" style="width:50%; margin-left:100px ; margin-top: 30px;"></h3>
+    <div>
+        <button class="badge bg-primary" onclick="disp()" style="margin-left: 5% ; font-size:large ">Detailed Answer</button><br><br>
+        <div class="diagram" id="output" style="display:none">
+        <div class="circuit" style="margin-left:5%">
+            <img src="https://i1.wp.com/s3.amazonaws.com/dcaclab.wordpress/wp-content/uploads/2020/01/20202426/JK1.png?zoom=2&resize=683%2C352&ssl=1" width="40%" height="60%">
+        </div>
+        <div class="Truth table" style="margin-left:50% ; margin-top:-20%">
+            <img src="https://www.electronicshub.org/wp-content/uploads/2015/05/jkff.jpg">
+
+        </div>
+        </div>
+    </div>
+
+
+<script>
+     function fun(){
+                var S = document.getElementById("a").value;
+                var R = document.getElementById("b").value;
+                c=S + R;
+                var t={'00':'0','01':'0','10':'1',"11":'1','11':'0'}
+                var u={'00':'1','01':'1','10':'0',"11":'0','11':'1'}
+                var v = {'00':'Previous','01':'Reset','10':'Set',"11":'Toggle'}
+                
+                
+                
+                document.getElementById("submit").innerHTML+=`The Output Q is ${t[c]}<br><br>`
+                document.getElementById("submit").innerHTML+=`The Output ~Q is ${u[c]}<br><br>`
+                document.getElementById("submit").innerHTML+=`The State of the flip-flop is ${v[c]}`
+            }
+    function disp(){
+                document.getElementById("output").style.display="block"
+    }
+</script>
+</body>
+</html>
