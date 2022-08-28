@@ -13,37 +13,49 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
 <body style="background-color:powderblue">
     <div class="container">
         <center><h1 style="color:blue"><i>Decimal to 8421 Code</i></h1></center><br>
-        <input type="number" id="a" style="border-radius: 7px; border: 3px solid; margin-left: 30px; " placeholder="input" onchange="fun()">
+        <div class="Explaination">
+        <h4>
+            <p> Weighted code in which each decimal digit 0 through 9 is represented by a four-bit codeword. </p>
+            <p>The bit positions in each codeword are assigned weights, from left to right, of 8, 4, 2, and 1.</p>
+            <p>8421 Code uses four bits to represent the 15 decimal digits of 0 to 15.</p>
+
+        </h4>
+        </div>
+        <input type="number" id="a" style="border-radius: 7px; border: 3px solid; margin-left: 35px; " placeholder="input" onchange="fun()">
         
         <button type="button" class="btn btn-primary" onchange="fun()">Submit</button><br><br>
-        <h3 class="text-dark" id="result" style="margin-left:75px ; font-size:x-large;"></h3><br>
+        <h3 class="alert alert-primary" id="result" style="margin-left:35px ; font-size:x-large;display: none;" ></h3><br>
         <button class="badge bg-primary" onclick="disp()" style="font-size:large ; margin-left:30px ;"><em>Detailed Answer</em></button><br><br>
-        <div class="detailAnswer" id="resultId" style="font-size:x-large; margin-left:30px;" >
-        
+        <div  id="resultId" style="font-size:x-large; margin-left:30px;" >
+            
+        </div>
+        <div id="img" style="margin-left: 50%;">
+            <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd5TM7C14OGW7bFDM0NcQdPeIJfwtmFm84wTTaWwA96DpUOpVT68-bL08OslR7yynDi4U&usqp=CAU">
         </div>
     </div>
     <script>
-        var p=0;
+        var p=0; //Global variable to store the output value
         function fun(){
             let x=document.getElementById("a").value;
             let y=Number(x).toString(2);
-            if(x>16)
+            if(x>=16)
                 document.getElementById('result').innerText=`Entered value ${x} is invalid.....`;
             else {
                 document.getElementById('result').innerText=`Value of Entered Number ${x} in 8421 code is : ` + y;
             }
             p=y;
+            document.getElementById("result").style.display="block";
         }
         function disp(){
             var sum="";
             var r=document.getElementById("a").value;
+            if(r<16){
             var z=String(p);
             let s=z.length;
             for (i=0; i<4-s; i++)
                 z = '0' + z;
-                k=`The 8421 Code of ${r} is ${z} <br> Conversion of 8421 code to decimal by multiplying with their weights is: `
+                k=`The 8421 Code of ${r} is ${z} <br> Conversion of 8421 code to decimal is by multiplying with their weights is: `
             num=z.length;
-            console.log(num);
             for(i=0;i<=(z.length-2);i +=1){
                 let p=z[i];
                 o=Math.pow(2,num-1)
@@ -52,10 +64,17 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
             }
             val =z[i]
             sum +=`${val}*1 = ${r}`;
-               
-
             document.getElementById("resultId").innerHTML+=k;
-            document.getElementById("resultId").innerHTML+=sum;
+            document.getElementById("resultId").innerHTML=sum;
+        }
+        else{
+            summ=`Invalid input...<br> 8421 Conversion is valid upto the numbers 0 to 15`;
+
+            document.getElementById("resultId").innerHTML=summ; 
+        }
+        //document.getElementById("img").style.display="block";
+
+            
         }
     </script>
 </body>
