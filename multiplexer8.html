@@ -14,13 +14,20 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
     <div class="container">
         <center><h1 style="color:blue"><i>8 : 1 Multiplexer</i></h1></center><br>
         <div>
-        <i><h4>An 8-to-1 multiplexer consists of eight data inputs D0 through D7, three input select lines S0 through S2 and a single output line Y.
-             Depending on the select lines combinations, multiplexer selects the inputs.</h4></i>
+        <i><h4>
+            <p>In the 8 to 1 multiplexer, there are total</p> 
+            <p>eight inputs, i.e., A0, A1, A2, A3, A4, A5, A6, and A7,</p>
+            <p> 3 selection lines, i.e., S0, S1and S2 </p>
+            <p>and single output, i.e., Y.</p>
+            <p>On the basis of the combination of inputs that are present at the selection lines S0, S1, and S2, one of these 8 inputs are connected to the output.</p>
+            <h3>the Boolean equation for the output is given as:</h3>
+                <h5>Y = ~S0 ~S1 ~S2 D0 + ~S0 ~S1 S2 D1 + ~S0 S1 ~S2 D2 + ~S0 S1 S2 D3 + S0 ~S1 ~S2 D4 + S0 ~S1 S2 D5 + S0 S1 ~S2 D6 + S0 S1 S2 D7</h5> 
+        </h4></i>
         </div><br>
         <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-2">
-               <label for="input" class="form-label fs-3" style="color:green">Enter Select line </label>
+               <label for="input" class="form-label fs-4" style="color:green">Enter Select line </label>
             </div>
             <div class="col-sm-2">
                <input type="number" class="form-control" id="a">
@@ -35,25 +42,29 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
         </div><br>
         <h4 id="out" style="margin-left:20%" ></h4><br>
         <div>
-        <button class="badge bg-primary" id="result" onchange = "disp()" style="font-size:large"> Detailed Answer</button>
+        <button class="badge bg-primary"  onclick = "disp()" style="margin-left:5% ; font-size:large"> Detailed Answer</button><br><br>
+        <div class="diagram" id="result" style="display:none">
+        <div class="circuit" style="margin-top:10px ; margin-left:10% ;">
+            <img src="https://static.javatpoint.com/tutorial/digital-electronics/images/multiplexer7.png">
         </div>
-
+        <div class="Truth table" style="margin-left:50% ; margin-top:-30%">
+            <img src="https://i.stack.imgur.com/3uBI8.jpg">
+        </div>
+        </div>
+    </div>
         <script>
             function fun(){
                 var So = document.getElementById("a").value;
                 var S1 = document.getElementById("b").value;
                 var S2 = document.getElementById("c").value;
-                if((So == 0 || So == 1) && (S1 == 0 || S1 == 1) && (S2 == 0 || S2 == 1)){
-                    c=So + S1 + S2;
+                c=So + S1 + S2;
                 
-                    document.getElementById("submit").innerHTML=`The Output Signal is ${"D"+parseInt(c,2)}`
-                }
-                else
-                    document.getElementById("submit").innerHTML=`The Output Signal is Undefined`;
+                var t={'000':'Do' , '001':'D1' , '010':'D2' , '011':'D3' ,'100':'D4' , '101':'D5' , '110':'D6' , '111':'D7'}
+                
+                document.getElementById("submit").innerHTML=`The Output Signal is ${t[c]}`
             }
             function disp(){
-                // document.getElementById().innerHTML=;
-                // document.getElementById().innerHTML=;
+                document.getElementById("result").style.display="block";
 
             }
         </script>
