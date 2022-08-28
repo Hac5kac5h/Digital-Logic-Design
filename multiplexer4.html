@@ -13,9 +13,15 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
 <body style="background-color:powderblue">
     <div class="container">
         <center><h1 style="color:blue"><i> 4 : 1 Multiplexer</i></h1></center><br>
-        <div>
-        <i><h4>An 4-to-1 multiplexer consists of four data inputs D0 through D3, two input select lines S0 through S1 and a single output line Y. 
-            Depending on the select lines combinations, multiplexer selects the inputs.</h4></i>
+        <div class="Explaination">
+        <i><h4>
+            <p>In the 4×1 multiplexer, there is a total of four inputs, i.e., D0, D1, D2, and D3, 2 selection lines,</p>
+            <p>S0 and S1 and single output, i.e., Y. On the basis of the combination of inputs that are present at the selection lines S0 and S1, one of these 4 inputs are connected to the output.</p>
+            <p>The block diagram and the truth table of the 4×1 multiplexer are given below.</p>
+            <p><h3> the output expressions as follows:
+
+                Y = ~S0 ~S1 D0 + ~S0 S1 D1 + S0 ~S1 D2 + S0 S1 D3 </h3></p>
+        </h4></i>
         </div><br>
         <div class="row">
             <div class="col-sm-1"></div>
@@ -32,29 +38,27 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
 
         </div><br>
         <h4 id="out" style="margin-left:20%"></h4><br>
-        <div>
-        <button class="badge bg-primary" id="result" onchange = "disp()" style="font-size:large ; margin-left: 60px;"> Detailed Answer</button>
+    <div>
+        <button class="badge bg-primary" id="result" onclick = "disp()" style="font-size:large ; margin-left: 60px"> Detailed Answer</button><br><br>
+        <div class="diagram" id="output" style="display:none">
+        <div class="circuit" style="margin-left:10%">
+            <img src="https://static.javatpoint.com/tutorial/digital-electronics/images/multiplexer4.png">
         </div>
-
+        <div class="Truth table" style="margin-left: 50% ; margin-top: -25%;">
+            <img src="https://www.electronicshub.org/wp-content/uploads/2015/07/4-to-1-MUX-Truth-Table.jpg">
+        </div>
+        </div>
+    </div>
         <script>
             function fun(){
                 var So = document.getElementById("a").value;
                 var S1 = document.getElementById("b").value;
-                if((So == 0 || So == 1) && (S1 == 0 || S1 == 1)){
                 c=So + S1;
-                
-                
-                
                 document.getElementById("submit").innerHTML=`The Output Signal is ${"D"+parseInt(c,2)}`
-                }
-                else
-                    document.getElementById("submit").innerHTML=`The Output Signal is Undefined`;
             }
-            function disp(){
-                // document.getElementById().innerHTML=;
-                // document.getElementById().innerHTML=;
-
-            }
+        function disp(){
+            document.getElementById("output").style.display="block";
+        }
         </script>
 </body>
 </html>
