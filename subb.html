@@ -8,7 +8,6 @@
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
  <style>
     body{
         background-color:powderblue;
@@ -22,13 +21,12 @@
     }
     .tail{
         width:100%;
-        margin:50% 20% 30% 40%;
+        margin:80% 20% 30% 40%;
     }
     .col-md-8{
         color: blue;
-    }
-    .col-md-8{
-        margin-left: 50px;
+        margin-left: 50%;
+        
     }
     .numInp{
         border-radius: 5px;
@@ -47,110 +45,109 @@
     .text-dark{
         margin-left: 30px;
     }
+    #inp1{
+        margin-left: 9px;
+        font-size: x-large;
+    }
+    #inp2{
+        margin-right: 20px;
+        border-bottom: 3px solid;
+        font-size: x-large;
+        display:none;
+    }
+    #inp3{
+        margin-top: -14px;
+        margin-left: 8px;
+        font-size: x-large;
+    }
  </style>
 
 </head>
 <body>
     <div class="main">
         <div class="head">
-            <h1 class="col col-md-8"><b><i> Binary Subtraction</i><b></b></h1>
-            <br>
+            <h1 class="col col-md-8" ><b><i> Binary Subtraction</i><b></b></h1><br>
             <input type="number"  id="a" class="numInp"/>
             <input type="number" id="b" class="numInp"/>
+            
             <button type="button" class="btn btn-primary" onclick="subb()">Subb</button>
-            <h3 class="text-dark"  id="result"> </h3>
+            <h3 class="alert alert-primary"  id="result" style="width:max-content;display:none; margin-left:30px;"> </h3>
+            
             <br><br>
-            <button class="badge bg-primary" onclick="disp()"><em>Detailed Answer</em></button> 
+            
+            <button class="badge bg-primary" onclick="disp()"><em>Detailed Answer</em></button> <br> <br>
+            <div id="det" style="display:block">
+                <p><i>
+                    Binary numbers are used in computers to store and represent data using digits 0 and 1. There are two cases that come up while learning about binary subtraction, and those are given below:
+                    <ul>
+                    <li>Binary subtraction like decimal subtraction</li>
+                    <li>Binary subtraction using 1's compliment method</li>
+                    </ul>
+                </p></i><br>
+                <h3><b>
+                    Binary subtraction like decimal subtraction
+                    </b></h3><br>
+                    <p>When the subtraction of two digit similar to decimal subtraction where smaller number is subtracted from larger number. </p>
+                    <h3><b>
+                        Binary subtraction using 1's compliment method</b></h3><br>
+                        <p>Using this method we can subtract any number from any number.</p>
+                        <ul>
+                            <p><li>Write the 1’s complement of the subtrahend</li></p>
+                            <p><li>Then add the 1’s complement subtrahend with the minuend</li></p>
+                            <p><li>If the result has a carryover, then add that carry over in the least significant bit</li></p>
+                            <p><li>If there is no carryover, then take the 1’s complement of the resultant, and it is negative.</li></p>
+                            <p><li>The number 0 represents the positive sign</li></p>
+                            <p><li>The number 1 represents the negative sign</li></p>
+                        </ul>
+            </div>
             <br><br><br>
             <div class="detailAnswer" id="resultId">
-                <i><p>The binary Subtraction operation works similarly to the base 10 decimal system, except that it is a base 2 system.</p>
+                <h4><i><p>The binary subtraction operation works similarly to the base 10 decimal system, except that it is a base 2 system.</p>
                     <p>The binary system consists of only two digits, 1 and 0</p></i>
                     <ul>
-                        <li><p>0 - 0 =00</p></li>
-                        <li><p>0 - 1 =11</p></li>
-                        <li><p>1 - 0 =01</p></li>
-                        <li><p>1 - 1 =00</p></li>
-                    </ul>
+                        <li><p>0 - 0 = 0</p></li>
+                        <li><p>0 - 1 = 1</p></li>
+                        <li><p>1 - 0 = 1</p></li>
+                        <li><p>1 - 1 = 0</p></li>
+                    </ul></h4>
             </div>        
         </div>
         <div class="tail">
+            <div id="exp" style="display:block;margin-left:-42%;margin-top:-50%;">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNtGAUigcl-PU-lkBf0629b-qsJzhZj_JFZg&usqp=CAU" width="350" height="250"><br> <br>
+                <b><p>1's Compliment Method</p></b>
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBIREREPEBUUEhIPEREREBIYEBQSEhIRGBQdGRkUGBYcLjwnHB4rHxgcJjsoKzE/NTc1GiQ7QDs2Pzw1NTEBDAwMEA8QHhISGjQhISs0NjQ0NDQ/NDQ0NDY0ND0xMTQ0MTQ/NDQ0NDQ0NDQ0NDQ0MTE0NDQ0NDQ0NDQ0NTQ2NP/AABEIALUBFwMBIgACEQEDEQH/xAAbAAEBAAIDAQAAAAAAAAAAAAAABgEFAgQHA//EAEQQAAICAQICBQgGBwYHAQAAAAECAAMEBRESIQYTMUFRBxQXIlSRpNIWMlJhgeJVZXGSk5SyFSMmNUKxc3R1orPB8YT/xAAXAQEBAQEAAAAAAAAAAAAAAAAAAQID/8QAJBEBAQABAwQBBQEAAAAAAAAAAAERAhJRMUFhoVIDITKxwXH/2gAMAwEAAhEDEQA/APZoiICIiAiIgIiICIiAiJqszW8enIx8SxwL8ot1KAFi3CNyTt2D7z27QNrERAROjqeoVY1L5GQwrqqUs7HfkB4AcyfADmZ9MDMTIqryKjxV3IllbbFeJGG4Ox5jke+B2oiYgZiarT9cx8i3IoofjfEZUv2VtlZt9lDdjHkd9jy25zawERMEwMxNXo2t4+atrYz9atFz0OwVgvWKASAT9YbEcxyM2kBERAREQEREBERAREQEREBERAREQEREBETBMDMTAMzAxPNNe0WjG1zR7alPWZeTn2ZDszO7nqk4RuexVBICjkBPS5rs3SKL7sfJtTitwzYcd+Nl6suAHPCDsdwB2gwNlExMwJDyi6LRkYOTkXKXbDxMt6FLsEWw1H1yg5Mw25E9m5mx6D/5Xp3/ACWN/wCNZtM7ES+qyi0cVdyPXYOIrxIy8LLuOY3BPZGBiJRTVj1LwV0otda8RbhRRso3PM8h3wO1Opn4i31WUOWCWoyMVYo3CRsdmHMGduIHn3QPCqx9S1rHoQV1VPiKiDsA6n7+3nz3PjPQZrsPSaKbsjJrThtyyhyH43PGUXhU7E7DYeAE2MDE1+taXXmUPjXhjVZw8aq7IWAYNwll57HbY7dxM2EzAgfJZUtaatWihEr1jLRFA2VUUIAoHcABL6a7TdIoxeu83Tg85usyLvXduO59uJ/WJ232HIcvumxgIiICIiAiIgIiICIiAiIgIiICIiAiIgJ515U9SzkxsqirEFmI+LvbldaoNZLHiHB2nYAH8Z6LOnqWDXk1Pj3rx1XKUsTiZeJT3bqQR+BkokvJtqOdZj0U5GIMfHqxKRj3CxW64BVC+qOzdecuZ1cLFSiquiocNdKKla8RbhVRsBueZ5DtJnamkhERIpERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQMSQyfKBiV5LY5TIZK7lx7ctaeLEquJ24Hs35HfYdnfK+eJZebUmk6npzMozX1OxFoLAXO7ZClWVe1ht/qEnce2CZnxxQQiKe0IoP7QBvPtKk6NR0h13HwKHyMlwqqDwLuOOxgN+BFJ9Zj/APeU7WlZ65OPTk1hlTIqS1QwAYB1DAEDlvsfGaXp5p1NmBl32Vq9uPg5gpdl4jXxVHiK79hOw59s7XQf/K9O/wCSxv8AxrJFb2dbPzK8eqy+5gldSs7se5QNzOzJPyn0PZo+clYJYVo+w7eBLUd/+1TCx9ej3TPHzreoWvIx7Gr66pb6eq6+nfbrK+Z4llRPMsfPpzNY0V8N0tXGwch8gowYVo9XAiNt9VuIj1TzE9NlQnwyclKkay1lrRAWd3YKigd5Y8gJ9509QwKsms05CLbWxUsjDdSVYMNx3jcA7GSjXdGektGpJdbjB+Ci96CzBQHZQDxLsT6pDDbfY/dN7ITyYgD+2AAABrOYAANgB6vICXcoREQEREBERAREQEREBERARE4O4A3JAA7STsBA5xOCOGG4II8Qdx75zgIiIGIiaLX+kCYhrqRGyMm8kUYybcbn7TE8kQHtY9nM89jCyW3Ebp7FX6xC79m5A/3nDzhPtp+8J5d03W6wYzaouAnHYa8XHYX3PxNtxHiQjkdlBPYNh4zOF0d02u5MXUtOrxrLiVouXItfGublsgYtur89tj2kfeBJlrZecvUfOE+2n74nQswMJ7lyWrx2vTbhuKVm0bdmz9o7ZpvRvo/safxLvmnBfJ3oxJUYtZI7QLbSR+0cUrCr84T7afviPOE+2n74kv6N9H9jT+Jd80ejfR/Y0/iXfNAo8g02I9dhrdHUq6MVZXUjYqQeRBHdMY5prRa6zWlaKFRVKqqKBsFCjkABJt/J1oyjdsSsDxNtoH9U5ejfR/Y0/iXfNAqPOE+2n74nFsis8i6EHkRxLJn0b6P7Gn8S75phvJzowG5xEAHaTZcB/VA3mBhYeOWOOmPSbDu5Ra0LnxYjtnd84T7afviSqeTvRmG64lZHiLbSP6py9G+j+xp/Eu+aBUecJ9tP3xHnCfbT98SX9G+j+xp/Eu+acW8nOjAbtiIAO0m20D38UChxK8anj6oU1da7WWcPAnHa31nbbtY+J5zs+cJ9tP3xJVfJzoxG4xEIPYRbaR/VOXo30f2NP4l3zQKlblY7Kyk9uwIJ2n1mg0XojgYNpvxKFqsZDWzB7G3QkErsxI7VHum/gIiICIiAiIgIiICIiAkL0xoXK1HTdPyC3mtqZNr1h2RbrUA4EYjtHMnaXU1Ou6DjZ6LXkpxhG462DFHrf7SuOYkE+uJi6TRnHCyEp2asmq21raMV2AAArXdt2334e0kiaR+m+YmLqp3VrdPbENNj4r43Gl23J6HYle/Y78wQZVVdCMBMe3FFbcF7pZa5tc3M6turdZvxbg9kx9B8IpkowucZoqGQz5NjvYazupLk77/fvA1mfqOpplYGEt2P1mauRZZYcVuGpUVSFVOP1iCSNyee/dOvk9Kcyrr8Amt9QGdjYuO3VMqPVcvELim55BVfc77brLG/SKnyKMpg3W4yWJUeIgBXADbjv7BNGOj1l2rrqV9dSJjUNTjlXZ7LWLHaxwQAmylgAN/rdss6oqt9l3J32HM+Ow7ZG9A6fOTlaw44nzbWWlioBTGrbhVV7wCV5jlvwjfftlk67gjxBHvkf5OH6vGt059ut06+2pxyDFXcurkbnk2590l6x10/hcdf4lfKX0dSizHz2ey2/J1XHUF3JWqnZiKkXuG6g/h3T0rXNLrzMa3HtG6urAHluj7eq6k9jA8wZr+l3Rr+0a8ZOt6nzbKqyd+r6zi4Aw4dtxtvxdv3dk3OflJRVZdYeFKkd3PPkqjc9nPu7pezEzmWJfTNctbRL8ljvk4eNmK7dxux1YBvx4QfxMjtO09MNejufSWGRn31pmWGxmN4vXduPc89ieUt+g+ATpoF67eeG+56zz4UuYkKT37qQe7t7BOpo3QPze/HstyrMjHwS5wMZ61UUF+9nB3cju3A2ki/UxmyLeZmJmVl5v5UsC9kryGyGGPXlYa14qqFVnNgDPY/a33DsG289FXsH7BNN0p0Lz/HXH6zquG6m7i4OPfq2DcO247du3eboCJ0HKRPlJJsXAwySKs7PppyACVL1bFihI7iQJbTSdKNCXPoFRdqbK7EuouUAtVah3DAHtHcR98Cd6G4q4eqangUbrjJXjX11cTMtTuCGC79gO28vJO9GOjZw2vvuvbLysplN2QyLXuqDZFVF3AA59/fKKBmQPTusZOo6Pp127Y2S+TZfXxMosNVfEitt2jcy+k90n6Oeeiiyu5sbJxXL4+QqLYVJXhYFW+spHdvA0/k7TqbNUwUJNOJnEUAsW6ut0B4Bv2AEdn3mXM0PRbo+MCp0NjX3ZFrX5N7KFa21ttzwj6o2HIb8pvoCIiAiIgIiICIiAiIgIiICIiAiIgIiIGJMa5oFhvGoYDLVlqOG1WB6nLrC8ktA7xsAG7vdtTxFWWyoxOleYgK36XlCxe3qil1Z5AghxyPb2DfafMadm6m6NqVYxcOshhhraLGvYbbdc45FARvw8u3mOW8tjEmPLe+dpisIoAAAAAAAA5ADw2nOIlcyJouk+vjT6kuNF+Tx2BOClONh6pPER4ctvxEgfJ102sd7Me6rNvbIz36u5uK2vHrbYLW7MfU4fAcucT7letxMCZgIiICIiAiJwdgASSAANySdgB47wOcTUaDruPnJbZitxpTc9DPtsrOoUkqf9S7MNj3zbwEREBERAREQEREBERAREQEREBERAREQERJPUPKHpWPbZj3ZPBZS5SxfN8huFh2jdVIP4GBWRIv0o6L7X8Lk/JHpR0X2v4XJ+SBaRIv0o6L7X8Lk/JHpR0X2v4XJ+SBZ7TTdHuj1WAtyUtYwyMizIbjKEh323C7AcuXfz++aX0o6L7X8Lk/JHpR0X2v4XJ+SBaRIv0o6L7X8Lk/JHpR0X2v4XJ+SBaRIv0o6L7X8Lk/JHpR0X2v4XJ+SBaRIv0o6L7X8Lk/JHpR0X2v4XJ+SBaTp6lg15NT49y8ddgAddyOIbg7Eju5SX9KOi+1/C5PyR6UdF9r+FyfkgfHyX1qleqIihUTWc1ERQAqKBWAoA7ABLqRQ8qGijsytv8A8uT8kz6UdF9r+FyfkgWkSL9KOi+1/C5PySk0jVaMyhMnFbrKbOLgfgZd+Fip9VgCOYI7IGwiIgIiICIiAiIgIiICIiAiIgIiICcSo8B7pyiBw4R4D3THCPAe6SHlEazg0+qu22kZGpY1DvVY1b8Dh1IDD9u/PluBH0FH6Q1T+e/LI3tmJbcZWHCPAe4RwjwHuEj26CqOZ1DVQBzJ8+/LOhp3R/DyWdMfV8+56/rqmpK5XntzAXxEZvBt0c+l/wAI8B7hHCPAe4SQ+gg/SGq/z35Y+gY/SGq/z35YzeDbo59K/hHgPcI4R4D3CQ2Z0TopNYu1TUqzdYtdQbUApexuxF3XmT4TtfQMfpDVP578sZvBt0fL0r+EeA9wjhHgPcJIfQMfpDVf578s62f0ToxqzdkapqVVakAu+oBVBJ2A3Kxm8G3Rz6XHCPAe4RwjwHuEiMLojTkVi2jVNStrbfhddQDKf2ELOx9Ax+kNU/nvyxm8G3R8vSv4R4D3COEeA9wkh9Ax+kNV/nvyx9Ax+kNV/nvyxm8G3Rz6V/CPAe4RwjwHuEhvonQLhjHVNR68p1oq/tAcZr324+Hh3235bztfQMfpDVP578sZvBt0fL0r+EeA90yBIjoljvj6jn4hvyMiuqnFZDfebWBYMW27h+A7pcRnKatOL1yzExMyskRMQMxEQEREBERAREQEREBERAREQI7yg9uk/wDWML/dpYSP8oPbpP8A1jC/3aWEk61vV+MTPlFsdNIz2QkN5uy7j7LEK3/aTJerCqxdT6Peaoqdfh5KXFVAL1rSrKWI7Txd5no+XjJdW9Nih67UZLFPYysNiD+Bk90e6E42Bab63vtdU6qrrrusWirffq6hsOFezt37JZ9qxVRMzEzA8z6daOqZ2mZrWW2WW6pj1orP/d0VbElUQchuVBJPPkJ6UJqta0KrMbGa1nU4eQmTUFZRu6bgBtwdxz7tj9820dsHdmQfTetbdU0LHtUPRZblu6MoZGsSoGvcHkeZMu5p+kXR+nPrSu4ujVuLKra36u6qwf60buP4SCd8n9a1Zet0VALTXnKyIo2VXZPXA8OYHLu2l3NR0d0KjApNFHEeN2stsduO221vrO7d5O028oTBmYgeY6RpAw+kap1lt72aU1t1tr8bvY2QQT4AbKoAHIAT02ahtAqOeuplrOuXG80C8S9V1fGX3K7b8W58dvum3gSWkf53qf8AwML+kypscKpZiAqgliTsAANySZLaR/nep/8AAwv6TO70v03Jy8VsTGZK/OHRMixmYMuNv/ecAAO7EctjsOZ5zM6On1Os/wAn6QmHquXbqGDqjW2piZ+ZbjY+MbGWs46VlUsZOziZgTzH/qW2p9KeqzhptWPbk3tjec+o1aqo4ioDM5AXs7T4iT+peTDFr83u0ytacijJouLPfcytWjbsux4uZ5d3dN3i6FkV5Wq53FWbcytKsP1n2rSusheM7ct22J237Jrs593XPT6jzOnMNVobIyTiV0E1q3Xhip3cngCjb6xO07GX0sejFtysnEupFL1IVL1OHWxgodHQlSBxc5rKOiOTTgYOCi4eRXQjed416t1dtrFmNldwUspDMdvV7PCfPD6D3V6Zn4IatHzHayilXtbGxjuCqq7DiI3G5O34QNu/TXFXNysFuIeZYz5N9244FChSyDvLAOP9p8qOmnWLjJVi3WZWTS2SuKHrV68cMQtljsQq8XLYdvOaCzyc3OdPD2oVUWnVn426zJayxbGVTw+su6hee3qgTZ9JOhjXZpzaasTJ48cUNRk8a1oy/UsQop/YV27O8QO1d09x0w8fN6u0i/KGGaeH+9S7dgwIG/Ftwns7dx38pRaRmvkVC2ymzGLMwFdhXrOEHYEhSQN/DeS2L0NsS3S9/NxTgNffctdZqD5LjZGWvmAAAOe45jfbulxCMxEQpERAREQEREBERAl+mej5OWmKcU1C3FzKsodaXFZ4A2wPCCTzI5cuW/OdQDpD+qvi5YxGG5ruMYiP/wAQ/qr4uP8AEP6q+LljEmDf4iO/xD+qvi4/xD+qvi5YxGDf4iO26ReOlfFRt0i8dK+KljEYN/iI7bpF46V8VM7dIfHSvi5YRGDf4iP26Q+OlfFzG3SLx0r4qWMRg3+IjtukXjpXxUbdIvHSvipYxGDf4iO26ReOlfFTO3SHx0r4uWERg3+Ik+jOkZteXlZmcccvk10oBQbOEdXuOYccuRHfKyIiRnVqzWZjaZiVGJmIgYiZiBiZiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiB//2Q==" width="250" height="250">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXtQWIvDRpXHccISQqLBQIp4Vcv1DeAy_zcg&usqp=CAU" width="260" height="250">
+            </div>
             <p id="inp1"></p>
             <p id="inp2"></p>
             <p id="inp3"></p>
         </div>
     </div>
     
-<script type="text/javascript">
+<script>
     var c= 0;
     function subb(){
-        let a= parseInt(document.getElementById("a").value,2);
-        let b= (document.getElementById("b").value,2);
-        let c=flip
-
-
-// Returns '0' for '1' and '1' for '0'
-function flip (c) {return (c == '0')? '1': '0';}
-
-// Print 1's and 2's complement of binary number
-// represented by "bin"
-function printOneAndTwosComplement(bin)
-{
-	var n = bin.length;
-	var i;
-
-	var ones, twos;
-	ones = twos = "";
-
-	// for ones complement flip every bit
-	for (i = 0; i < n; i++)
-		ones += flip(bin[i]);
-
-	// for two's complement go from right to left in
-	// ones complement and if we get 1 make, we make
-	// them 0 and keep going left when we get first
-	// 0, make that 1 and go out of loop
-	twos = ones;
-	twos = twos.split('')
-	for (i = n - 1; i >= 0; i--)
-	{
-		if (ones[i] == '1')
-			twos[i] = '0';
-		else
-		{
-			twos[i] = '1';
-			break;
-		}
-	}
-	twos = twos.join('')
-	// If No break : all are 1 as in 111 or 11111;
-	// in such case, add extra 1 at beginning
-	if (i == -1)
-		twos = '1' + twos;
-
-
-	document.write( "1's complement: " + ones + "<br>");
-	document.write( "2's complement: " + twos + "<br>");
-}
-
-// Driver program
-var bin = "b";
-printOneAndTwosComplement(bin);
-
-
-
+        let a= parseInt(document.getElementById("a").value,2); //Input A...
+        let b= parseInt(document.getElementById("b").value,2);  //Input B...
+        //Subtraction of two binary inputs
+        if(a>b)
         c = a-b;
+        else c=b-a;
+        document.getElementById("result").style.display="block";
+        document.getElementById("exp").style.display="none";
+        document.getElementById("det").style.display="none";
         document.getElementById("result").innerText ='The subtraction of binary numbers is ' + c.toString(2);
     }
     function disp(){
-        let x = document.getElementById("a").value;
+        let x = document.getElementById("a").value; // Storing input A
 
-        let y = document.getElementById("b").value;
+        let y = document.getElementById("b").value; // Storing input B
 
-
-        document.getElementById("inp1").innerText =''+x.toString(2);
-        document.getElementById("inp2").innerText ='-'+y.toString(2);
+        document.getElementById("inp1").innerText ='  '+x.toString(2);
+        document.getElementById("inp2").innerText ='-'+y.toString(2)
         document.getElementById("inp3").innerText =''+c.toString(2);
-
+        document.getElementById("inp2").style.display="block";
         document.getElementById("resultId").style.display = "block";
     }
 </script>
