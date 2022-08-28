@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OR</title>
+    <style>
+        #inp,#out{
+            display:none;
+        }
+        #detail1{
+            display:flex;
+            flex-direction:row ;
+            margin:0 30%;
+        }
+        .a{
+            margin-top:15px;
+            margin-left:15px;
+            color:blue;    
+        }
+        .b{
+            margin-top:25px;
+            margin-left:15px;
+            color:blue;
+        }
+        #m{
+            margin-top:-3%;
+            
+        }
+        .output{
+            margin-top:45px;
+            margin-left:15px;
+            color:blue;
+        }
+    </style>
+    
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<body style="background-color:powderblue">
+    <div class="container">
+        <center><h1 style="color:blue"><i>OR Gate Operation</i></h1></center><br>
+        <input type="number"  id ="a" style="border-radius: 7px; border: 3px solid; margin-left: 50px; " placeholder="input1">
+        <input type="number"  id ="b" style="border-radius: 7px; border: 3px solid; margin-left: 50px; " placeholder="input2">
+        <button type="button" class="btn btn-primary" onclick="or()">Submit</button><br><br>
+        <h3 class="alert alert-primary"  id="result" style=" width:fit-content;margin-left:50px;display: none;" > </h3>
+        <br><br>
+        <div class="container">
+            <button class="badge bg-primary" onclick="disp()" style="font-size:large;margin-left: 41px;"><em>Detailed Answer</em></button><br><br><br>
+            <div id="exp" style="display:block">
+                <h3>Different Combinations Of OR GATE </h3><br>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/CMOS_OR.svg/510px-CMOS_OR.svg.png" width="450" height="300">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/CMOS_4071_diagram.svg/400px-CMOS_4071_diagram.svg.png" width="450" height="300"> 
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/NMOS_OR_gate.png" height="300"><br> <br>
+                <h5>In logic, disjunction is a logical connective typically notated as  and read outloud as "or". </h5>
+                <div><center><h5>Disjunction</h5>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Venn0111.svg/640px-Venn0111.svg.png"width="200" height="200"></center>
+
+                </div>
+                <div style="margin-top:-75%;margin-left:75%">
+                    <img src="https://instrumentationtools.com/wp-content/uploads/2016/07/instrumentationtools.com_or-gate-logic-animation.gif" width="300" height="300">
+                </div>
+                
+            </div> 
+            <div style="display:none" id="detail">
+                
+                <h5><i><p>In this OR operation , if one of the inputs is 1,then output is 1 otherwise 0</p></i><br>
+
+                    <ul>
+                        <li><p>0 || 0 = 0</p></li>
+                        <li><p>0 || 1 = 1</p></li>
+                        <li><p>1 || 0 = 1</p></li>
+                        <li><p>1 || 1 = 1</p></li>
+                    </ul> </h5>
+            </div>  
+        </div>
+    
+
+
+                <div id="detail1">
+                    <div id="inp">
+                        <div class="a"><h2 id="1"></h2></div>
+                        <div class="b"><h2 id="2"></h2></div>
+                    </div>
+                    <div style="display:none" id="m">
+                        <center><img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/OR_ANSI_Labelled.svg/518px-OR_ANSI_Labelled.svg.png" width="350",height="300"></center>
+                    </div>
+                    <div id="out">
+                        <div class="output"><h2 id="3"></h2></div>
+                    </div>
+                    <div id="ex" style="margin-top:-95%;margin-left:40%;display: none;">
+                        <b>OR gate using diodes</b><br> <br>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Diode_OR_Gate.svg/340px-Diode_OR_Gate.svg.png"width="200" height="200"><br> <br>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Transistor_OR_Gate.png/238px-Transistor_OR_Gate.png"width="200" height="200"><br> <br>
+                        <b>Disjunction(OR GATE)</b><br> <br>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/OR_IEC_Labelled.svg/240px-OR_IEC_Labelled.svg.png">
+                    </div>
+                </div>
+          
+    </div>            
+    <script>
+        var n=0;
+        var p=0;
+       function or(){
+        var x=document.getElementById("a").value;
+        var y=document.getElementById("b").value;
+        if((x == 0 || x==1) && (y == 0 || y == 1)){
+            c=x | y ; 
+            document.getElementById("result").innerText ='The OR of numbers is ' + c;
+            r=x;
+            p=y;
+        }
+        else{
+                document.getElementById("result").innerHTML = 'Invalid Inputs...';
+            }
+            document.getElementById("result").style.display="block";
+       }
+         function disp(){
+            document.getElementById("exp").style.display="none";
+            document.getElementById("ex").style.display="block";
+            document.getElementById("m").style.display="block";
+            document.getElementById("inp").style.display="block";
+            document.getElementById("detail").style.display="block";
+
+            document.getElementById("out").style.display="block";
+            document.getElementById("1").innerHTML=`<p>${r}</p>`
+            document.getElementById("2").innerHTML=`<p>${p}</p>`
+            document.getElementById("3").innerHTML=`<p>${c}</p>`
+           
+
+         }
+    </script>
+</body>  
+</html>
