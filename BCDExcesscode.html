@@ -13,15 +13,28 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
 <body style="background-color:powderblue">
     <div class="container">
         <center><h1 style="color:blue"><i>BCD and Excess Code</i></h1></center><br>
-        <input type="number" id="a" style="border-radius: 7px; border: 3px solid; margin-left: 50px; " placeholder="input" onchange="fun()">
         
+        <h2 style="color:blue">BCD code:</h2>
+        <h4> BCD is simply the 4-bit binary code representation of a decimal digit with each decimal digit replaced in the integer and fractional parts with its binary equivalent. 
+            BCD Code uses four bits to represent the 10 decimal digits of 0 to 9.</h4>
+        <br><h2 style="color:blue">Excess-3 Code</h2>
+        <h4>Excess-3 codes are unweighted and can be obtained by adding 3 to each decimal digit then it can be represented by using 4 bit binary number for each digit. An Excess-3 equivalent of a given binary binary number is obtained using the following steps:<br><br>
+            <ul>
+            <li><p>Find the decimal equivalent of the given binary number.</p></li>
+            <li><p>Add +3 to each digit of decimal number.</p></li>
+            <li><p>Convert the newly obtained decimal number back to binary number to get required excess-3 equivalent.</p></li>
+            <li><p>You can add 0011 to each four-bit group in binary coded decimal number (BCD) to get desired excess-3 equivalent.</p></li>
+            </ul>
+        </h4>
+        <input type="number" id="a" style="border-radius: 7px; border: 3px solid; margin-left: 50px; " placeholder="input" onchange="fun()">
+
         <button type="button" class="btn btn-primary" onchange="fun()">Submit</button><br><br>
-        <h3 class="text-dark" id="result1" style="margin-left:75px ; font-size:x-large;"></h3><br>
-        <!-- <h3 class="text-dark" id="result2" style="margin-left:280px ; font-size:x-large;"></h3><br> -->
-        <h3 class="text-dark" id="result3" style="margin-left:75px ; font-size:x-large;"></h3><br>
+        <h3 class="alert alert-primary" id="result1" style="margin-left:50px ; font-size:x-large;display:none "></h3><br>
+        <h3 class="alert alert-primary" id="result3" style="margin-left:50px ; font-size:x-large; display:none"></h3><br>
 
         
         <button type="button" class="btn btn-primary" onclick="disp()">Detailed Answer</button>
+
         <h3 class="text-dark" id="result0" style="margin-left:75px ; font-size:x-large;"></h3><br>
         <h3 class="text-dark" id="resulta" style="margin-left:75px ; font-size:x-large;"></h3><br>
         <h3 class="text-dark" id="resultb" style="margin-left:255px ; font-size:x-large;"></h3><br>
@@ -33,28 +46,30 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
             var dict = {'0':'0000','1':'0001','2':'0010','3':'0011','4':'0100','5':'0101','6':'0110','7':'0111','8':'1000',
                         '9':'1001','10':'1010','11':'1011','12':'1100'}
             document.getElementById("result1").innerHTML =`BCD code of ${x} is :`
-            //document.getElementById("result2").innerHTML =`+`
+            
             document.getElementById("result3").innerHTML =`XS3 code of ${x} is :`
             for(i=0;i<x.length;i++){
                 var val = String(Number(x[i])+3)
                 document.getElementById("result1").innerHTML += (dict[x[i]] + " ");
-                //document.getElementById("result2").innerHTML += ('0011 ');
+                
                 document.getElementById("result3").innerHTML += (dict[val] + " ");
             }
             var y=(dict[x[i]] + " ");
+            document.getElementById("result1").style.display="block";
+            document.getElementById("result3").style.display="block";
         }
         function disp(){
             var x=document.getElementById("a").value;
             var dict = {'0':'0000','1':'0001','2':'0010','3':'0011','4':'0100','5':'0101','6':'0110','7':'0111','8':'1000',
                         '9':'1001','10':'1010','11':'1011','12':'1100'}
-            document.getElementById("resulta").innerHTML =`BCD code of ${x} is :`
+            document.getElementById("resulta").innerHTML =`BCD code of ${x} is : `
             document.getElementById("resultb").innerHTML =`+`
             document.getElementById("resultc").innerHTML =`XS3 code of ${x} is :`
             for(i=0;i<x.length;i++){
                 var val = String(Number(x[i])+3)
                 document.getElementById("result0").innerHTML =`Given Input is : ${x}`
                 document.getElementById("resulta").innerHTML += (dict[x[i]] + " ");
-                document.getElementById("resultb").innerHTML += (' 0011 ');
+                document.getElementById("resultb").innerHTML += ('0011 ');
                 document.getElementById("resultc").innerHTML += (dict[val] + " ");
             }
             var y=(dict[x[i]] + " ");
