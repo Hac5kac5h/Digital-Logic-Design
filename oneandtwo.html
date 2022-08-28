@@ -12,14 +12,20 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
 </head>
 <body style="background-color:powderblue">
     <div class="container">
-        <h1 style="color:blue">One's And Two's Compliment of a Number</h1><br>
+        <center><h1 style="color:blue">One's And Two's Compliment of a Number</h1></center><br>
+        <div class="Explaination">
+            <h4>
+               <p> To get 1's complement of a binary number, simply invert the given number. </p>
+                <p>To get 2's complement of a binary number, simply invert the given number and add 1 to the least significant bit (LSB) of given result.</p>
+            </h4>
+        </div><br><br>
         <label for="input" class="form-label" style="margin-left:35px ; font-size: x-large;">Enter Number:</label>
-        <input type="binaryOnly" class="form-control" id="a" style="border-radius:5px ; font-size: large; width:max-content; margin-left: 195px; margin-top: -42px; " onchange="fun()">
-        <br><br>
+        <input class="form-control" id="a" style="border-radius:5px ; font-size: large; width:max-content; margin-left: 195px; margin-top: -42px; " onchange="fun()">
+        <br>
 
-        <h4>1's Compliment:  </h4>
+        <h4 id="1c" style="color:blue; display:none">1's Compliment:  </h4>
         <h4 id="b" style="margin-left:180px; margin-top: -33px;"></h4><br><br>
-        <h4>2's Compliment:  </h4>
+        <h4 id="2c" style="color:blue; display:none">2's Compliment:  </h4>
         <h4 id="c" style="margin-left:180px; margin-top: -33px;"></h4><br>
         <button type="button" class="btn btn-primary" onclick="disp()">Detailed Answer</button>
         <div class="detailAnswer" id="resultId" style="font-size:x-large">
@@ -32,20 +38,17 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
                 document.getElementById("b").innerHTML ='';
                 document.getElementById("c").innerHTML ='';
                 let x=document.getElementById("a").value;
-                // let r=0;
-                // let p = ""
-                // for(i=0; i<x.length; i++) {
-                //     s += (x[i] == '1') ? '0' : '1';
-                // }
+                
                 document.getElementById("b").innerHTML += ones(x);
                 
                 document.getElementById("c").innerHTML += add(ones(x),'1').padStart(x.length,'0');
-                // r=x;
+                document.getElementById("1c").style.display="block";
+                document.getElementById("2c").style.display="block";
             }
             function ones(y) {
                 s = '';
                 for(i=0; i<y.length; i++) {
-                    s += (y[i] == '1') ? '0' : '1';
+                    s += (y[i] == '1') ? '0' :'1';
                 }
                 return s;
             }
