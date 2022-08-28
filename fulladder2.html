@@ -50,15 +50,47 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
 </head>
 <body style="background-color:powderblue">
     <div class="container">
+        
         <center><h1 style="color:blue"><i>Full Adder And Subtractor</i></h1></center><br>
+        <div class="Explaination">
+            <h4 style="color:blue">FULL ADDER</h4>
+            <div class="Explanation">
+            <h5>
+            <p>The first two inputs are A and B and the third input is an input carry as C-IN. </p>
+            <p> The output carry is designated as C-OUT and the normal output is designated as S which is SUM.</p>
+            <p>SUM =  C-IN XOR (A XOR B)</p>
+                <p>COUT = AB + C-IN(A XOR B)</p></h5>
+                <div style="margin-left:70% ; margin-top:-14%">
+                    <img src="https://static.javatpoint.com/tutorial/digital-electronics/images/full-adder2.png" width="200px" height="180px">
+                </div><br>
+            <h4 style="color:blue"> FULL SUBTRACTOR</h4>
+           <h5> 
+            <p>  The three inputs A, B and Bin, denote the minuend, subtrahend, and previous borrow, respectively.</p>
+                <p> The two outputs, D and Bout represent the difference and output borrow, respectively.</p>
+                 <p> D = (A XOR B) XOR Bin</p>
+                 <p> Bout= A’Bin + A’B + BBin</p>
+                 <div style="margin-left:70% ; margin-top:-14%">
+                    <img src="https://electricalvoice.com/wp-content/uploads/2018/05/full-subtractor-truth-table.jpg" width="200px" height="180px">
+                </div><br>
+           </h5>
+        </div>
+
+    </div>
+    <div class="inp&out">
         <input type="binaryOnly" id="a" style="border-radius: 7px; border: 3px solid; margin-left: 50px; " placeholder="input1">
         <input type="binaryOnly" id ="b" style="border-radius: 7px; border: 3px solid; margin-left: 15px; " placeholder="input2">
         <input type="binaryOnly" id ="p" style="border-radius: 7px; border: 3px solid; margin-left: 15px; " placeholder="input3">
         <button type="button" class="btn btn-primary" onclick="had()">Submit</button><br><br>
+        <div class="output">
+        <h4 style="color:blue;display: none;" id="Add"> Full Adder</h4>
+
         <h3 class="text-dark"  id="result1" style="margin-left:35px"></h3><br>
         <h3 class="text-dark"  id="result2" style="margin-left:35px"></h3><br>
+        <h4 style="color:blue;display: none;" id="Subb"> Full Subtractor</h4>
+
         <h3 class="text-dark"  id="result3" style="margin-left:35px"></h3><br> 
          <h3 class="text-dark"  id="result4" style="margin-left:35px"></h3>
+        </div>
     </div><br>
     <div class="container">
         <button class="badge bg-primary" onclick="disp1()" style="font-size:large"  >Full Adder</button>
@@ -66,16 +98,17 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
 
          <div id="detail1">
             <div id="inp1"> 
-                <div class="a"><h2 id="1"></h2></div>
-                <div class="b"><h2 id="2"></h2></div>
+                <div class="a"><h3 id="1"></h3></div>
+                <div class="b"><h3 id="2"></h3></div>
+                <div class="c"><h3 id="3"></h3></div>
             </div>
             <div>
                 <img style="display: none;" id="hide" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Full-adder.svg/2560px-Full-adder.svg.png"
                    width="450" height="250" style="margin-left:30%; margin-top: 3%;" >
             </div>
             <div id="out1">
-                <div class="sum"><h2 id="3"></h2></div>
-                <div class="carry"><h2 id="4"></h2></div>
+                <div class="sum"><h2 id="4"></h2></div>
+                <div class="carry"><h2 id="5"></h2></div>
 
             </div>
 
@@ -83,41 +116,41 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
 
         <div id="detail2">
             <div id="inp2"> 
-                <div class="a1"><h2 id="5"></h2></div>
-                <div class="b1"><h2 id="6"></h2></div>
+                <div class="a1"><h3 id="6"></h3></div>
+                <div class="b1"><h3 id="7"></h3></div>
+                <div class="c1"><h3 id="8"></h3></div>
             </div>
             <div>
                 <img style="display: none;" id="hid" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Full_Subtractor.svg/2560px-Full_Subtractor.svg.png"
                    width="450" height="250" style="margin-left:30%; margin-top: 3%;" >
             </div>
             <div id="out2">
-                <div class="difference"><h2 id="7"></h2></div>
-                <div class="borrow"><h2 id="8"></h2></div>
+                <div class="difference"><h2 id="9"></h2></div>
+                <div class="borrow"><h2 id="10"></h2></div>
 
             </div>
 
     </div>
     <script>
-        var r=0;
-        var t=0;
-        var n=0;
+        var r=0,t=0,n=0;       //inputs...
+        var c=0,d=0,e=0;      //outputs...
         function had(){
             
-            var x = document.getElementById("a").value;
-            var y= document.getElementById("b").value;
-            var z = document.getElementById("p").value;
+            x = document.getElementById("a").value;
+            y= document.getElementById("b").value;
+            z = document.getElementById("p").value;
             if((x == 0 || x==1) && (y == 0 || y == 1) && (z == 0 || z == 1)){
             c = (x ^ y)^ z;
             d = ((x & y) || (y & z)) || (x & z);
-            //e = (~x & y) || ((~x || y) & z);
+            //e = (~x & y) || ((~x || y) & z);   (Other Form Of Representation...)
             e = ((~x & z) || (~x & y) || (y & z))
             document.getElementById("result1").innerHTML ='Sum of given binary inputs is :' +c ;
             document.getElementById("result2").innerHTML = 'Carry of given binary inputs is :'+d;
             document.getElementById("result3").innerHTML ='Difference of given binary inputs is :' +c ;
             document.getElementById("result4").innerHTML = 'Borrow of given binary inputs is :'+e;
-            document.getElementById("a").value="";
-            document.getElementById("b").value="";
-            document.getElementById("c").value="";
+            document.getElementById("Add").style.display="block";
+            document.getElementById("Subb").style.display="block";
+
             r=x;
             t=y;
             n=z;
@@ -134,21 +167,28 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
             document.getElementById("hide").style.display = "block";
             document.getElementById("inp1").style.display = "block";
             document.getElementById("out1").style.display = "block";
+            document.getElementById("hid").style.display = "none";
+            document.getElementById("inp2").style.display = "none";
+            document.getElementById("out2").style.display = "none";
             document.getElementById("1").innerHTML=`<p>${r}</p>`
             document.getElementById("2").innerHTML=`<p>${t}</p>`
-            document.getElementById("3").innerHTML=`<p>${c}</p>`
-            document.getElementById("4").innerHTML=`<p>${d}</p>`
+            document.getElementById("3").innerHTML=`<p>${n}</p>`
+            document.getElementById("4").innerHTML=`<p>${c}</p>`
+            document.getElementById("5").innerHTML=`<p>${d}</p>`
 
         }
         function disp2(){
-            document.getElementById("detail1").style.display = "none";
             document.getElementById("hid").style.display = "block";
             document.getElementById("inp2").style.display = "block";
             document.getElementById("out2").style.display = "block";
-            document.getElementById("5").innerHTML=`<p>${r}</p>`
-            document.getElementById("6").innerHTML=`<p>${t}</p>`
-            document.getElementById("7").innerHTML=`<p>${c}</p>`
-            document.getElementById("8").innerHTML=`<p>${e}</p>`
+            document.getElementById("hide").style.display = "none";
+            document.getElementById("inp1").style.display = "none";
+            document.getElementById("out1").style.display = "none";
+            document.getElementById("6").innerHTML=`<p>${r}</p>`
+            document.getElementById("7").innerHTML=`<p>${t}</p>`
+            document.getElementById("8").innerHTML=`<p>${n}</p>`
+            document.getElementById("9").innerHTML=`<p>${c}</p>`
+            document.getElementById("10").innerHTML=`<p>${e}</p>`
          }
     </script>
 </body>
