@@ -12,15 +12,18 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
 </head>
 <body style="background-color:powderblue">
     <div class="container">
-        <center><h1 style="color:blue"><i>Multiplexer</i></h1></center><br>
-        <div>
-        <i><h4>A 2-to-1(2:1) multiplexer consists of two inputs D0 and D1, one select input S and one output Y. Depending on the select signal, the output is connected to either of the inputs.
-             Since there are two input signals, only two ways are possible to connect the inputs to the outputs, so one select is needed to do these operations.</h4></i>
+        <center><h1 style="color:blue"><i> 2:1 Multiplexer</i></h1></center><br>
+        <div class="Expalination">
+        <i><h4>A 2-to-1(2:1) multiplexer consists of two inputs A0 and A1, one select input S and one output Y. 
+             <p>Depending on the select signal, the output is connected to either of the inputs.</p>
+             <p>Since there are two input signals, only two ways are possible to connect the inputs to the outputs, so one select is needed to do these operations.</p>
+            <p>Expression of a typical 2 to 1 Multiplexer as follows:<br>
+                Y = ~S.A0 + S.A1 </p></h4></i>
         </div><br>
         <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-2">
-               <label for="input" class="form-label fs-3" style="color:green">Enter Select line </label>
+               <label for="input" class="form-label fs-4" style="color:green">Enter Select line </label>
             </div>
             <div class="col-sm-2">
                <input type="number" class="form-control" id="a" onchange="fun()">
@@ -28,8 +31,15 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
         </div><br>
         <h3  class="alert alert-primary" id="out" style="width:50%; margin-left:100px ; margin-top: 30px;"></h3>
         <div>
-        <button class="badge bg-primary" id="result" onchange = "disp()"> Detailed Answer</button>
+        <button class="badge bg-primary"  onclick = "disp()" style="font-size:large ;margin-left:8%"> Detailed Answer</button><br><br>
+    <div id="diagram"style="display:none" >
+        <div class="circuit" style="margin-left:15%" >
+            <img src="https://static.javatpoint.com/tutorial/digital-electronics/images/multiplexer.png">
         </div>
+        <div class="Truth table" style="margin-left:50% ; margin-top: -15%">
+            <img src="https://www.tutorialspoint.com/computer_logical_organization/images/two_onemultiplexer_truthtable.jpg">
+        </div>
+    </div>
 
         <script>
             function fun(){
@@ -37,15 +47,14 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
                 var D1 = 1;
                 var S =document.getElementById("a").value;
                 if(S == 0)
-                    document.getElementById("out").innerHTML=`The selected input is Do `
+                    document.getElementById("out").innerHTML=`The selected input is Ao `
                 else if(S == 1)
-                    document.getElementById("out").innerHTML=`The selected input is D1`
+                    document.getElementById("out").innerHTML=`The selected input is A1`
                 else
                     document.getElementById("out").innerHTML=`Enter the Valid Input...`
             }
             function disp(){
-                // document.getElementById().innerHTML=;
-                // document.getElementById().innerHTML=;
+                document.getElementById("diagram").style.display="block";
 
             }
         </script>
