@@ -4,39 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full Adder</title>
+    <title>Full Adder And Subtractor</title>
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
 integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <style>
-    #inp1{
+    #inp1,#inp2{
         display: none;
     }
-    #out1{
+    #out1,#out2{
         display:none
     }
-    .a{
+    .a,.a1{
         margin-top: 8px;
         margin-right: 15px;
         color:blue;
     }
-    .b{
+    .b,.b1{
         margin-right: 15px;
         margin-top: -10px;
         color:blue;
     }
-    #detail1{
+    #detail1,#detail2{
         display: flex;
         flex-direction: row;
         margin:0 30%;
         
     }
-    .sum{
+    .sum,.difference{
         margin-top: 30px;
         margin-left: 15px;
         color:blue;
     }
-    .carry{
+    .carry,.borrow{
         margin-top: 105px;
         margin-left: 15px;
         color:blue;
@@ -50,33 +50,65 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
 </head>
 <body style="background-color:powderblue">
     <div class="container">
-        <center><h1 style="color:blue"><i>Full Adder</i></h1></center><br>
+        
+        <center><h1 style="color:blue"><i>Full Adder And Subtractor</i></h1></center><br>
+        <div class="Explaination">
+            <h4 style="color:blue">FULL ADDER</h4>
+            <div class="Explanation">
+            <h5>
+            <p>The first two inputs are A and B and the third input is an input carry as C-IN. </p>
+            <p> The output carry is designated as C-OUT and the normal output is designated as S which is SUM.</p>
+            <p>SUM =  C-IN XOR (A XOR B)</p>
+                <p>COUT = AB + C-IN(A XOR B)</p></h5>
+                <div style="margin-left:70% ; margin-top:-14%">
+                    <img src="https://static.javatpoint.com/tutorial/digital-electronics/images/full-adder2.png" width="200px" height="180px">
+                </div><br>
+            <h4 style="color:blue"> FULL SUBTRACTOR</h4>
+           <h5> 
+            <p>  The three inputs A, B and Bin, denote the minuend, subtrahend, and previous borrow, respectively.</p>
+                <p> The two outputs, D and Bout represent the difference and output borrow, respectively.</p>
+                 <p> D = (A XOR B) XOR Bin</p>
+                 <p> Bout= A’Bin + A’B + BBin</p>
+                 <div style="margin-left:70% ; margin-top:-14%">
+                    <img src="https://electricalvoice.com/wp-content/uploads/2018/05/full-subtractor-truth-table.jpg" width="200px" height="180px">
+                </div><br>
+           </h5>
+        </div>
+
+    </div>
+    <div class="inp&out">
         <input type="binaryOnly" id="a" style="border-radius: 7px; border: 3px solid; margin-left: 50px; " placeholder="input1">
         <input type="binaryOnly" id ="b" style="border-radius: 7px; border: 3px solid; margin-left: 15px; " placeholder="input2">
-        <input type="binaryOnly" id ="c" style="border-radius: 7px; border: 3px solid; margin-left: 15px; " placeholder="input3">
-
+        <input type="binaryOnly" id ="p" style="border-radius: 7px; border: 3px solid; margin-left: 15px; " placeholder="input3">
         <button type="button" class="btn btn-primary" onclick="had()">Submit</button><br><br>
+        <div class="output">
+        <h4 style="color:blue;display: none;" id="Add"> Full Adder</h4>
+
         <h3 class="text-dark"  id="result1" style="margin-left:35px"></h3><br>
         <h3 class="text-dark"  id="result2" style="margin-left:35px"></h3><br>
-        <!-- <h3 class="text-dark"  id="result3" style="margin-left:35px"></h3><br> -->
-        <!-- <h3 class="text-dark"  id="result4" style="margin-left:35px"></h3> -->
+        <h4 style="color:blue;display: none;" id="Subb"> Full Subtractor</h4>
+
+        <h3 class="text-dark"  id="result3" style="margin-left:35px"></h3><br> 
+         <h3 class="text-dark"  id="result4" style="margin-left:35px"></h3>
+        </div>
     </div><br>
     <div class="container">
         <button class="badge bg-primary" onclick="disp1()" style="font-size:large"  >Full Adder</button>
-        <!-- <button class="badge bg-primary" onclick="disp2()" style="font-size:large"  >Half Subtractor</button><br><br> -->
+        <button class="badge bg-primary" onclick="disp2()" style="font-size:large"  >Full Subtractor</button><br><br>
 
-        <div id="detail1">
+         <div id="detail1">
             <div id="inp1"> 
-                <div class="a"><h2 id="1"></h2></div>
-                <div class="b"><h2 id="2"></h2></div>
+                <div class="a"><h3 id="1"></h3></div>
+                <div class="b"><h3 id="2"></h3></div>
+                <div class="c"><h3 id="3"></h3></div>
             </div>
             <div>
-                <img style="display: none;" id="hide" src="data:image/png;base64,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"
+                <img style="display: none;" id="hide" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Full-adder.svg/2560px-Full-adder.svg.png"
                    width="450" height="250" style="margin-left:30%; margin-top: 3%;" >
             </div>
             <div id="out1">
-                <div class="sum"><h2 id="3"></h2></div>
-                <div class="carry"><h2 id="4"></h2></div>
+                <div class="sum"><h2 id="4"></h2></div>
+                <div class="carry"><h2 id="5"></h2></div>
 
             </div>
 
@@ -84,76 +116,50 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
 
         <div id="detail2">
             <div id="inp2"> 
-                <div class="a1"><h2 id="5"></h2></div>
-                <div class="b1"><h2 id="6"></h2></div>
+                <div class="a1"><h3 id="6"></h3></div>
+                <div class="b1"><h3 id="7"></h3></div>
+                <div class="c1"><h3 id="8"></h3></div>
             </div>
             <div>
-                <img style="display: none;" id="hide" src="data:image/png;base64,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"
+                <img style="display: none;" id="hid" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Full_Subtractor.svg/2560px-Full_Subtractor.svg.png"
                    width="450" height="250" style="margin-left:30%; margin-top: 3%;" >
             </div>
             <div id="out2">
-                <div class="difference"><h2 id="7"></h2></div>
-                <div class="borrow"><h2 id="8"></h2></div>
+                <div class="difference"><h2 id="9"></h2></div>
+                <div class="borrow"><h2 id="10"></h2></div>
 
             </div>
 
     </div>
     <script>
-        var r=0;
-        var t=0;
+        var r=0,t=0,n=0;       //inputs...
+        var c=0,d=0,e=0;      //outputs...
         function had(){
             
-            var x = document.getElementById("a").value;
-            var y= document.getElementById("b").value;
-            var z= document.getElementById("c").value;
-            function adder(){
-            this.halfAdder = function(a,b){
-            var gate = new Gate();
-            var sum = gate.XOR(a,b);
-            var carry = gate.AND(a,b);
-            return [sum , carry];
-            };
-            this.fullAdder = function(a,b,c){
-            var gate = new Gate();
-            var out1 = this.halfAdder(a,b);
-            var out2 = this.halfAdder(c,out1[0]);
-            var result = gate.OR(out1[1], out2[1])
-            return [out2[0], result];
-
-        function Gate(){
-                this.NAND  = function(a,b){
-            if (a == 1 && b==1) return 0;
-            else return 1;
-            };
-                this.NOT = function(a){
-            return this.NAND(a,a);
-            };
-                this.AND  = function(a,b){
-            if (a == 1 && b==1) return 1;
-            else return 0;
-            };
-                this.OR  = function(a,b){
-            if (a == 0 && b==0) return 0;
-            else return 1;
-            };
-                this.XOR  = function(a,b){
-            return this.OR(this.AND(a, this.NOT(b)), this.AND(this.NOT(a),b));
-            };
-        }    
+            x = document.getElementById("a").value;
+            y= document.getElementById("b").value;
+            z = document.getElementById("p").value;
+            if((x == 0 || x==1) && (y == 0 || y == 1) && (z == 0 || z == 1)){
+            c = (x ^ y)^ z;
+            d = ((x & y) || (y & z)) || (x & z);
+            //e = (~x & y) || ((~x || y) & z);   (Other Form Of Representation...)
+            e = ((~x & z) || (~x & y) || (y & z))
             document.getElementById("result1").innerHTML ='Sum of given binary inputs is :' +c ;
             document.getElementById("result2").innerHTML = 'Carry of given binary inputs is :'+d;
             document.getElementById("result3").innerHTML ='Difference of given binary inputs is :' +c ;
             document.getElementById("result4").innerHTML = 'Borrow of given binary inputs is :'+e;
-            document.getElementById("a").value="";
-            document.getElementById("b").value="";
+            document.getElementById("Add").style.display="block";
+            document.getElementById("Subb").style.display="block";
+
             r=x;
             t=y;
+            n=z;
             }
-            //else{
-                //document.getElementById("result1").innerHTML = 'Invalid Inputs...';
-                //document.getElementById("result2").innerHTML = '';
-                // document.getElementById("a").value="";
-                // document.getElementById("b").value="";
+            else{
+                document.getElementById("result1").innerHTML = 'Invalid Inputs...';
+                document.getElementById("result2").innerHTML = '';
+                document.getElementById("a").value="";
+                document.getElementById("b").value="";
             }
         }
         
@@ -161,23 +167,29 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
             document.getElementById("hide").style.display = "block";
             document.getElementById("inp1").style.display = "block";
             document.getElementById("out1").style.display = "block";
+            document.getElementById("hid").style.display = "none";
+            document.getElementById("inp2").style.display = "none";
+            document.getElementById("out2").style.display = "none";
             document.getElementById("1").innerHTML=`<p>${r}</p>`
             document.getElementById("2").innerHTML=`<p>${t}</p>`
-            document.getElementById("3").innerHTML=`<p>${c}</p>`
-            document.getElementById("4").innerHTML=`<p>${d}</p>`
+            document.getElementById("3").innerHTML=`<p>${n}</p>`
+            document.getElementById("4").innerHTML=`<p>${c}</p>`
+            document.getElementById("5").innerHTML=`<p>${d}</p>`
 
         }
         function disp2(){
-            document.getElementById("detail1").style.display = "none";
+            document.getElementById("hid").style.display = "block";
             document.getElementById("inp2").style.display = "block";
             document.getElementById("out2").style.display = "block";
-            document.getElementById("5").innerHTML=`<p>${r}</p>`
-            document.getElementById("6").innerHTML=`<p>${t}</p>`
-            document.getElementById("7").innerHTML=`<p>${c}</p>`
-            document.getElementById("8").innerHTML=`<p>${e}</p>`
-
-
-        }
+            document.getElementById("hide").style.display = "none";
+            document.getElementById("inp1").style.display = "none";
+            document.getElementById("out1").style.display = "none";
+            document.getElementById("6").innerHTML=`<p>${r}</p>`
+            document.getElementById("7").innerHTML=`<p>${t}</p>`
+            document.getElementById("8").innerHTML=`<p>${n}</p>`
+            document.getElementById("9").innerHTML=`<p>${c}</p>`
+            document.getElementById("10").innerHTML=`<p>${e}</p>`
+         }
     </script>
 </body>
 </html>
