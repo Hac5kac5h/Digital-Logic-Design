@@ -35,10 +35,10 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
         
         <button type="button" class="btn btn-primary" onclick="disp()">Detailed Answer</button>
 
-        <h3 class="text-dark" id="result0" style="margin-left:75px ; font-size:x-large;"></h3><br>
-        <h3 class="text-dark" id="resulta" style="margin-left:75px ; font-size:x-large;"></h3><br>
-        <h3 class="text-dark" id="resultb" style="margin-left:255px ; font-size:x-large;"></h3><br>
-        <h3 class="text-dark" id="resultc" style="margin-left:75px ; font-size:x-large;"></h3><br>     
+        <h3 class="text-dark" id="result0" style="margin-left:5px ; font-size:x-large;"></h3><br>
+        <h3 class="text-dark" id="resulta" style="margin-left:5px ; font-size:x-large;"></h3><br>
+        <h3 class="text-dark" id="resultb" style="margin-left:175px ; font-size:x-large;"></h3><br>
+        <h3 class="text-dark" id="resultc" style="margin-left:5px ; font-size:x-large;"></h3><br>     
     </div>
     <script>
         function fun(){
@@ -63,7 +63,7 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
             var dict = {'0':'0000','1':'0001','2':'0010','3':'0011','4':'0100','5':'0101','6':'0110','7':'0111','8':'1000',
                         '9':'1001','10':'1010','11':'1011','12':'1100'}
             document.getElementById("resulta").innerHTML =`BCD code of ${x} is : `
-            document.getElementById("resultb").innerHTML =`+`
+            document.getElementById("resultb").innerHTML =`+ `
             document.getElementById("resultc").innerHTML =`XS3 code of ${x} is :`
             for(i=0;i<x.length;i++){
                 var val = String(Number(x[i])+3)
