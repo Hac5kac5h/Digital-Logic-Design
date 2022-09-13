@@ -25,22 +25,22 @@
                  <div class="row">
                  <div class="col-sm-1"></div>
                  <div class="col-sm-3">
-                    <button type="button" class="btn btn-primary" onclick="fun2()"> Binary to Decimal </button>
+                    <button type="button" id="b1" class="btn btn-primary" onclick="fun2()"> Binary to Decimal </button>
                  </div>
                  <div class="col-sm-3">
-                    <button type="button" class="btn btn-primary" onclick="fun3()">Binary to Octal</button>
+                    <button type="button" id="b2" class="btn btn-primary" onclick="fun3()">Binary to Octal</button>
                  </div>
                  <div class="col-sm-3">
-                    <button type="button" class="btn btn-primary" onclick="fun4()">Binary to Hexadecimal</button>
+                    <button type="button" id="b3" class="btn btn-primary" onclick="fun4()">Binary to Hexadecimal</button>
                  </div>
                 </div><br><br><br>
             </div>
             <p class="fs-3" id="disp" style="display:none; margin-left:8.5%"></p>
            <div >
-              <p class="alert alert-primary fs-2" id="con" style="display:none;margin-left:52%;margin-top:-15%;width:max-content"></p>
-              <p class="alert alert-primary fs-2" id="con2" style="display:none;margin-left:52%;margin-top:-18%;width:max-content"></p>
-              <p class="alert alert-primary fs-2" id="con3" style="display:none;margin-left:52%;margin-top:-18%;width:max-content"></p>
-           </div> <br> <br> <br> <br>
+              <p class="alert alert-primary fs-3" id="con" style="display:none"></p>
+              <p class="alert alert-primary fs-3" id="con2" style="display:none"></p>
+              <p class="alert alert-primary fs-3" id="con3" style="display:none"></p>
+           </div> <br> <br> 
            <div id="exp" style="display:none ;margin-left:8.5%; font-size:x-large;">
             <p>
                 In every Conversion the converted number is written from down to up from the Remainders
@@ -50,6 +50,25 @@
             var a=0,b=0,c=0,d=0;
             function fun1(){
                 a=document.getElementById("inp").value;
+                var i=0;
+                for(i;i<a.length;i+=1)
+                {
+                    if(a[i]=='0' || a[i]=='1')
+                        continue;
+                    else
+                    {
+                        var t = document.getElementById("disp");
+                        t.innerHTML = 'Invalid input';
+                        t.style.display = 'block';
+                        document.getElementById("b1").setAttribute("disabled",true);
+                        document.getElementById("b2").setAttribute("disabled",true);
+                        document.getElementById("b3").setAttribute("disabled",true);
+                        return;
+                    }
+                }
+                document.getElementById("b1").removeAttribute("disabled");
+                document.getElementById("b2").removeAttribute("disabled");
+                document.getElementById("b3").removeAttribute("disabled");
                 b=parseInt(Number(a),2).toString(10);
                 c=parseInt(Number(a),2).toString(8);
                 d=parseInt(Number(a),2).toString(16).toUpperCase();
