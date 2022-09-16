@@ -7,12 +7,24 @@
     <title>Decimal Conversions</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    
+    <style>
+        .container{
+            position: relative;
+            overflow-x: hidden;
+        }
+        @media screen and(max-width:900px) {
+            .container{
+                position: relative;
+                overflow-x: hidden;
+            }
+            
+            
+        }
+    </style>
 </head>
-<body>
-    <body style="background-color:powderblue;">
-        <br><h1 align="center" style="color:blue"> Decimal Conversions </h1><br>
-           <div >
+<body style="background-color:powderblue;">
+            <div class="container" >
+                <br><h1 align="center" style="color:blue"> Decimal Conversions </h1><br>
                  <div class="row">
                  <div class="col-sm-1"></div>
                  <div class="col-sm-2">
@@ -35,52 +47,52 @@
                  </div>
                 </div><br> <br> <br>
               
-            </div>
-            <p class="fs-3" id="disp" style="display:none; margin-left:8.5%"></p>
-            <div class="main"style="display:flex; flex-direction: row;">
+                <p class="fs-3" id="disp" style="display:none; margin-left:8.5%"></p>
+                <div class="main"style="">
 
-            <div class="head" style="width:30%">
-           <div >
-              <p class="alert alert-primary fs-2" id="con" style="display:none;width:fit-content;margin-left:20px"></p>
-           </div>
-           </div>
-           <div class="tail" style="width:70%">
-           <div class="explain">
-                <div class="bin" id="bi" style="display:none;margin-top:-1.5%; margin-right: 20%;">
-                    <h4 >
-                        <ul>
-                            <li>Write the given decimal number</li>
-                            <li>If the given decimal number is less than 2 the binary number is the same.</li>
-                            <li>If the decimal number is greater than 2 then divide the number by 2.</li>
-                            <li>Repeat step 3 and 4 with the quotient till it is less than 2</li>
-                            <li>Write the remainders in reverse order (bottom to top)</li>
-                            </ul>
-                         </h4>
+                <div class="head" >
+                <div >
+                    <p class="alert alert-primary fs-4" id="con" style="display:none;margin-left:20px"></p>
                 </div>
-                <div class="oct" id="oc" style="display:none;margin-top:-2%; margin-right:20%">
-                    <h4>
-                        <ul>
-                        <li>Write the given decimal number</li>
-                        <li>If the given decimal number is less than 8 the octal number is the same.</li>
-                        <li>If the decimal number is greater than 7 then divide the number by 8.</li>
-                        <li>Repeat step 3 and 4 with the quotient till it is less than 8</li>
-                        <li>Write the remainders in reverse order (bottom to top)</li>
-                        </ul>
-                    </h4>
                 </div>
-                <div class="hex" id="he" style="display:none;margin-top:-2%;margin-right:20%">
-                    <h4>
-                        <ul>
-                            <li>First, divide the decimal number by 16, considering the number as an integer</li>
-                            <li>write the remainders in reverse order (bottom to top)</li>
-                            <li>Again divide the quotient by 16 and repeat till you get the quotient value equal to zero.</li>
-                            <li>Remember, from 0 to 9, the numbers will be counted as the same in the decimal system</li>
-                            <li> But from 10 to 15, they are expressed in alphabetical order such as A, B, C, D, E, F and so on.</li>
-                            </ul>
-                    </h4>
+                <div class="tail" >
+                <div class="explain">
+                        <div class="bin" id="bi" style="display:none; margin-right: 20%;">
+                            <h4 >
+                                <ul>
+                                    <li>Write the given decimal number</li>
+                                    <li>If the given decimal number is less than 2 the binary number is the same.</li>
+                                    <li>If the decimal number is greater than 2 then divide the number by 2.</li>
+                                    <li>Repeat step 3 and 4 with the quotient till it is less than 2</li>
+                                    <li>Write the remainders in reverse order (bottom to top)</li>
+                                    </ul>
+                                </h4>
+                        </div>
+                        <div class="oct" id="oc" style="display:none; margin-right:20%">
+                            <h4>
+                                <ul>
+                                <li>Write the given decimal number</li>
+                                <li>If the given decimal number is less than 8 the octal number is the same.</li>
+                                <li>If the decimal number is greater than 7 then divide the number by 8.</li>
+                                <li>Repeat step 3 and 4 with the quotient till it is less than 8</li>
+                                <li>Write the remainders in reverse order (bottom to top)</li>
+                                </ul>
+                            </h4>
+                        </div>
+                        <div class="hex" id="he" style="display:none;margin-right:20%">
+                            <h4>
+                                <ul>
+                                    <li>First, divide the decimal number by 16, considering the number as an integer</li>
+                                    <li>write the remainders in reverse order (bottom to top)</li>
+                                    <li>Again divide the quotient by 16 and repeat till you get the quotient value equal to zero.</li>
+                                    <li>Remember, from 0 to 9, the numbers will be counted as the same in the decimal system</li>
+                                    <li> But from 10 to 15, they are expressed in alphabetical order such as A, B, C, D, E, F and so on.</li>
+                                    </ul>
+                            </h4>
+                        </div>
                 </div>
-           </div>
-           </div>
+                </div>
+             </div>
         <script>
             var n2=0;
             function fun1(){
