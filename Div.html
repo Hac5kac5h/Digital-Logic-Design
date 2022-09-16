@@ -14,19 +14,17 @@
     }
     .main{
         display: flex;
-        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        position: relative;
+        overflow-x: hidden;
     }
     .head{
-        width:70%
-    }
-    .tail{
         width:100%;
-        margin:80% 20% 30% 40%;
     }
     .col-md-8{
         color: blue;
-        margin-left: 50%;
-        
+        margin-left: 40%;
     }
     .numInp{
         border-radius: 5px;
@@ -46,19 +44,21 @@
         margin-left: 30px;
     }
     #inp1{
-        margin-left: 9px;
+        margin-left: 15px;
         font-size: x-large;
     }
     #inp2{
         margin-right: 20px;
         border-bottom: 3px solid;
         font-size: x-large;
-        display:none;
     }
     #inp3{
+        margin-left: 10PX;
         margin-top: -14px;
-        margin-left: 8px;
         font-size: x-large;
+    }
+    img{
+        margin-top: 10px;
     }
  </style>
 
@@ -71,25 +71,11 @@
             <input type="number" id="b" class="numInp"/>
             
             <button type="button" class="btn btn-primary" onclick="div()">Div</button>
-            <h3 class="alert alert-primary"  id="result" style="width:max-content;display:none; margin-left:30px;"> </h3>
+            <h3 class="alert alert-primary"  id="result" style="width:fit-content;display:none; "> </h3>
             
             <br><br>
             
             <button class="badge bg-primary" onclick="disp()"><em>Detailed Answer</em></button> <br> <br>
-            <div id="det" style="display:block">
-                <p><i>
-                    Binary numbers are used in computers to store and represent data using digits 0 and 1. 
-                    <ul>
-                    <li>Binary division like decimal division</li>
-                    </ul>
-                </p></i><br>
-                <h3><b>
-                    Binary division like decimal division
-                    </b></h3><br>
-                    <p>The division of two digits is similar to decimal division where given input is divided by dividend. </p>
-                    <p>The division of decimal binary inputs can also be done and the decimal point is placed based on the Least Significant Bit(LSB))</p>
-            </div>
-            <br><br><br>
             <div class="detailAnswer" id="resultId">
                 <h4><i><p>The binary Division operation works similarly to the base 10 decimal system, except that it is a base 2 system.</p>
                     <p>The binary system consists of only two digits, 1 and 0</p></i>
@@ -99,34 +85,50 @@
                         <li><p>1 / 0 = NaN</p></li>
                         <li><p>1 / 1 = 1</p></li>
                     </ul></h4>
-            </div>        
-        </div>
-        <div class="tail">
-            <div id="exp" style="display:block;margin-left:-42%;margin-top:-50%;">
-                <img src="data:image/png;base64,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" width="350" height="250"><br>
-                <br><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI2P3IZfTk_ko63AvCGTE7X36U9lI1S76skA&usqp=CAU" width="250" height="250">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFqCf5Ztw0l8sZ5cYGWRIgFRoZtZCrB0zV7g&usqp=CAU" width="260" height="250">
+                    <ul style="list-style: none; width:fit-content">
+                        <p id="inp1"></p>
+                        <p id="inp2"></p>
+                        <p id="inp3"></p>
+                    </ul>
+                </h4>
             </div>
-            <p id="inp1"></p>
-            <p id="inp2"></p>
-            <p id="inp3"></p>
-            
+            <div id="det" style="display:block">
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-evenly;">
+                    <div style="display: block; width: 60%;">
+                <p><i>
+                    Binary numbers are used in computers to store and represent data using digits 0 and 1. There are two cases that come up while learning about binary addition, and those are given below:
+                    <ul>
+                    <li>Binary division like decimal division</li>
+                    </ul>
+                </p></i><br>
+                    </div>
+                    <img src="data:image/png;base64,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" width="300" height="250"><br>
+                    </div>
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-evenly;">
+                    <div style="display: block; width: 60%;">
+                        <h3><b>
+                            Binary division like decimal division
+                            </b></h3><br>
+                            <p>The division of two digits is similar to decimal division where given input is divided by dividend. </p>
+                            <p>The division of decimal binary inputs can also be done and the decimal point is placed based on the Least Significant Bit(LSB))</p>        
+                    </div>
+                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI2P3IZfTk_ko63AvCGTE7X36U9lI1S76skA&usqp=CAU" width="250" height="250">
+                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFqCf5Ztw0l8sZ5cYGWRIgFRoZtZCrB0zV7g&usqp=CAU" width="260" height="250">
+                    </div>
+            </div>  
         </div>
-            <!-- <div>
-                <img  id ="ex" style="display:none;"src="https://www.sudarshan-sh.com/images/post_3/restoring_division_binary.jpg">
-            </div> -->
-        </div>
+    </div>
     
 <script>
-    var c= 0;
+   var c= 0;
     function div(){
         let a= parseInt(document.getElementById("a").value,2); //Input A...
         let b= parseInt(document.getElementById("b").value,2);  //Input B...
         //Division of two binary inputs
         c = a/b;
         document.getElementById("result").style.display="block";
-        document.getElementById("exp").style.display="none";
-        document.getElementById("det").style.display="none";
+       // document.getElementById("exp").style.display="none";
+        //document.getElementById("det").style.display="none";
         document.getElementById("result").innerText ='The division of binary numbers is ' + c.toString(2);
     }
     function disp(){
