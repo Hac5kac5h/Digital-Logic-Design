@@ -9,6 +9,10 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
 integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <style>
+    .container{
+        position: relative;
+        overflow-x: hidden;
+    }
     #inp1,#inp2{
         display: none;
     }
@@ -45,6 +49,38 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
         margin-left: 50px;
     }
 
+    @media screen and (max-width:900px) {
+        .container{
+            position: relative;
+            overflow-x: hidden;
+        }
+        .im1{
+            margin-left:-155%;
+            margin-top: 40%;
+        }
+        .im2{
+            width:200px;
+            height:180px;
+            margin-left:-155%;
+            margin-top:40%;
+        }
+        .contain{
+            margin-left:-15px;
+        }
+        #hide,#hid{
+            width:250px;
+            height: 250px;
+        }
+        #inp2{
+            margin-top:-15px;
+        }
+        #detail1,#detail2{
+            margin-left:2%;
+        }
+        
+        
+    }
+
 </style>
 
 </head>
@@ -61,7 +97,7 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
             <p>SUM =  C-IN XOR (A XOR B)</p>
                 <p>COUT = AB + C-IN(A XOR B)</p></h5>
                 <div style="margin-left:70% ; margin-top:-14%">
-                    <img src="https://static.javatpoint.com/tutorial/digital-electronics/images/full-adder2.png" width="200px" height="180px">
+                    <img class="im1" src="https://static.javatpoint.com/tutorial/digital-electronics/images/full-adder2.png" width="200px" height="180px">
                 </div><br>
             <h4 style="color:blue"> FULL SUBTRACTOR</h4>
            <h5> 
@@ -70,66 +106,68 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
                  <p> D = (A XOR B) XOR Bin</p>
                  <p> Bout= A’Bin + A’B + BBin</p>
                  <div style="margin-left:70% ; margin-top:-14%">
-                    <img src="https://electricalvoice.com/wp-content/uploads/2018/05/full-subtractor-truth-table.jpg" width="200px" height="180px">
+                    <img class="im2" src="https://electricalvoice.com/wp-content/uploads/2018/05/full-subtractor-truth-table.jpg" width="200px" height="180px">
                 </div><br>
            </h5>
         </div>
 
-    </div>
-    <div class="inp&out">
-        <input type="binaryOnly" id="a" style="border-radius: 7px; border: 3px solid; margin-left: 50px; " placeholder="input1">
-        <input type="binaryOnly" id ="b" style="border-radius: 7px; border: 3px solid; margin-left: 15px; " placeholder="input2">
-        <input type="binaryOnly" id ="p" style="border-radius: 7px; border: 3px solid; margin-left: 15px; " placeholder="input3">
-        <button type="button" class="btn btn-primary" onclick="had()">Submit</button><br><br>
-        <div class="output">
-        <h4 style="color:blue;display: none;" id="Add"> Full Adder</h4>
+    
+        <div class="inp&out">
+            <input type="binaryOnly" id="a" style="border-radius: 7px; border: 3px solid; margin-left: 15px; " placeholder="input1">
+            <input type="binaryOnly" id ="b" style="border-radius: 7px; border: 3px solid; margin-left: 15px; " placeholder="input2">
+            <input type="binaryOnly" id ="p" style="border-radius: 7px; border: 3px solid; margin-left: 15px; " placeholder="input3">
+            <button type="button" class="btn btn-primary" onclick="had()">Submit</button><br><br>
+            <div class="output">
+            <h4 style="color:blue;display: none;" id="Add"> Full Adder</h4>
 
-        <h3 class="text-dark"  id="result1" style="margin-left:35px"></h3><br>
-        <h3 class="text-dark"  id="result2" style="margin-left:35px"></h3><br>
-        <h4 style="color:blue;display: none;" id="Subb"> Full Subtractor</h4>
+            <h3 class="text-dark"  id="result1" style="margin-left:35px"></h3><br>
+            <h3 class="text-dark"  id="result2" style="margin-left:35px"></h3><br>
+            <h4 style="color:blue;display: none;" id="Subb"> Full Subtractor</h4>
 
-        <h3 class="text-dark"  id="result3" style="margin-left:35px"></h3><br> 
-         <h3 class="text-dark"  id="result4" style="margin-left:35px"></h3>
+            <h3 class="text-dark"  id="result3" style="margin-left:35px"></h3><br> 
+            <h3 class="text-dark"  id="result4" style="margin-left:35px"></h3>
+            </div>
+        </div><br>
+        <div class="contain">
+            <button class="badge bg-primary" onclick="disp1()" style="font-size:large"  >Full Adder</button>
+            <button class="badge bg-primary" onclick="disp2()" style="font-size:large"  >Full Subtractor</button><br><br>
+
+             <div id="detail1">
+                    <div id="inp1"> 
+                        <div class="a"><h3 id="1"></h3></div>
+                        <div class="b"><h3 id="2"></h3></div>
+                        <div class="c"><h3 id="3"></h3></div>
+                    </div>
+                <div>
+                    <img style="display: none;" id="hide" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Full-adder.svg/2560px-Full-adder.svg.png"
+                    width="450" height="250" style="margin-left:30%; margin-top: 3%;" >
+                </div>
+                <div id="out1">
+                    <div class="sum"><h2 id="4"></h2></div>
+                    <div class="carry"><h2 id="5"></h2></div>
+
+                </div>
+            </div>
+
+        
+            <div id="detail2">
+                <div id="inp2"> 
+                    <div class="a1"><h3 id="6"></h3></div>
+                    <div class="b1"><h3 id="7"></h3></div>
+                    <div class="c1"><h3 id="8"></h3></div>
+                </div>
+                <div>
+                    <img style="display: none;" id="hid" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Full_Subtractor.svg/2560px-Full_Subtractor.svg.png"
+                    width="450" height="250" style="margin-left:30%; margin-top: 3%;" >
+                </div>
+                <div id="out2">
+                    <div class="difference"><h2 id="9"></h2></div>
+                    <div class="borrow"><h2 id="a1"></h2></div>
+
+                </div>
+
+            </div>
         </div>
-    </div><br>
-    <div class="container">
-        <button class="badge bg-primary" onclick="disp1()" style="font-size:large"  >Full Adder</button>
-        <button class="badge bg-primary" onclick="disp2()" style="font-size:large"  >Full Subtractor</button><br><br>
-
-         <div id="detail1">
-            <div id="inp1"> 
-                <div class="a"><h3 id="1"></h3></div>
-                <div class="b"><h3 id="2"></h3></div>
-                <div class="c"><h3 id="3"></h3></div>
-            </div>
-            <div>
-                <img style="display: none;" id="hide" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Full-adder.svg/2560px-Full-adder.svg.png"
-                   width="450" height="250" style="margin-left:30%; margin-top: 3%;" >
-            </div>
-            <div id="out1">
-                <div class="sum"><h2 id="4"></h2></div>
-                <div class="carry"><h2 id="5"></h2></div>
-
-            </div>
-
-        </div>
-
-        <div id="detail2">
-            <div id="inp2"> 
-                <div class="a1"><h3 id="6"></h3></div>
-                <div class="b1"><h3 id="7"></h3></div>
-                <div class="c1"><h3 id="8"></h3></div>
-            </div>
-            <div>
-                <img style="display: none;" id="hid" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Full_Subtractor.svg/2560px-Full_Subtractor.svg.png"
-                   width="450" height="250" style="margin-left:30%; margin-top: 3%;" >
-            </div>
-            <div id="out2">
-                <div class="difference"><h2 id="9"></h2></div>
-                <div class="borrow"><h2 id="10"></h2></div>
-
-            </div>
-
     </div>
     <script>
         var r=0,t=0,n=0;       //inputs...
@@ -188,7 +226,7 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
             document.getElementById("7").innerHTML=`<p>${t}</p>`
             document.getElementById("8").innerHTML=`<p>${n}</p>`
             document.getElementById("9").innerHTML=`<p>${c}</p>`
-            document.getElementById("10").innerHTML=`<p>${e}</p>`
+            document.getElementById("a1").innerHTML=`<p>${e}</p>`
          }
     </script>
 </body>
