@@ -14,19 +14,17 @@
     }
     .main{
         display: flex;
-        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        position: relative;
+        overflow-x: hidden;
     }
     .head{
-        width:70%
-    }
-    .tail{
         width:100%;
-        margin:80% 20% 30% 40%;
     }
     .col-md-8{
         color: blue;
-        margin-left: 50%;
-        
+        margin-left: 40%;
     }
     .numInp{
         border-radius: 5px;
@@ -46,18 +44,21 @@
         margin-left: 30px;
     }
     #inp1{
-        margin-left: 9px;
+        margin-left: 15px;
         font-size: x-large;
     }
     #inp2{
         margin-right: 20px;
         border-bottom: 3px solid;
         font-size: x-large;
-        display:none;
     }
     #inp3{
+        margin-left: 10PX;
         margin-top: -14px;
         font-size: x-large;
+    }
+    img{
+        margin-top: 10px;
     }
  </style>
 
@@ -70,27 +71,11 @@
             <input type="number" id="b" class="numInp"/>
             
             <button type="button" class="btn btn-primary" onclick="add()">Add</button>
-            <h3 class="alert alert-primary"  id="result" style="width:max-content;display:none; margin-left:30px;"> </h3>
+            <h3 class="alert alert-primary"  id="result" style="width:fit-content;display:none;"> </h3>
             
             <br><br>
             
             <button class="badge bg-primary" onclick="disp()"><em>Detailed Answer</em></button> <br> <br>
-            <div id="det" style="display:block">
-                <p><i>
-                    Binary numbers are used in computers to store and represent data using digits 0 and 1. There are two cases that come up while learning about binary addition, and those are given below:
-                    <ul>
-                    <li>Binary addition without regrouping</li>
-                    <li>Adding binary numbers with regrouping</li>
-                    </ul>
-                </p></i><br>
-                <h3><b>
-                    Binary Addition without Regrouping</b></h3><br>
-                    <p>When the addition of two digits results in 0 or 1, then we don't need to regroup while adding two or more binary numbers. </p>
-                    <h3><b>
-                        Adding Binary Numbers with Regrouping</b></h3><br>
-                        <p>When the addition of two digits results in a number greater than 1, then we need to regroup while adding two or more binary numbers. </p>
-            </div>
-            <br><br><br>
             <div class="detailAnswer" id="resultId">
                 <h4><i><p>The binary addition operation works similarly to the base 10 decimal system, except that it is a base 2 system.</p>
                     <p>The binary system consists of only two digits, 1 and 0</p></i>
@@ -99,18 +84,40 @@
                         <li><p>0 + 1 = 1</p></li>
                         <li><p>1 + 0 = 1</p></li>
                         <li><p>1 + 1 =10</p></li>
-                    </ul></h4>
-            </div>        
-        </div>
-        <div class="tail">
-            <div id="exp" style="display:block;margin-left:-40%;margin-top:-50%;">
-                <img src="https://www.eecis.udel.edu/~davis/cpeg222/AssemblyTutorial/Chapter-08/binaryAdditionTable.gif" width="350" height="250"><br> <br>
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANIAAACnCAMAAABTqPICAAAAwFBMVEX///8AAACdnZ339/cLCwvw8PAuLi5YWFhcXFwrKyv8/PwEBAQ/Pz/09PTGxsaVlZXNzc2Pj4/i4uL/9fUyMjK1tbX/gID/CAj/oaH/GxvW1tYSEhIhISHs7OxGRkba2tp3d3eIiIipqan+NDQZGRn/TEz/1tZQUFB6enptbW1jY2O+vr6lpaWvr6+bm5tDQ0P/5OT/amo5OTn/c3P/wsL+XFz/uLj/6+v/FRX/0dH+jY3/VVX+Pz//sbH/Ly/+nJyCL1fKAAAIu0lEQVR4nO2cbWOiuBqGibwIKAgI26mggutWfEE7znRmzpmZ7v//VycQA0nEAoKedjfXh5aHByE3hATIDYLA4XA4HA6H0w3jr/+hZzw9N4vfHU8vX17+S8RfPz/8FBrE74/xrxdh/Ehoev72+Be5QFX8/vj08FUQvvz4Tsz6kylyVfze+PkAz4zfD7+JWR9c0vj1cQzPj4c/iHkfXNL3H39mkr4Q8z68pF/6P0zS+PUVHqVvD2Qz/sElCS9p8/Dp4Rsx66NL+p014o//pEZc/+un8Pz4NznrlSny66+343fH88vnn6Sip88/Hr881Y/fIzp9GTp+en5+GtePORwOh/N/RPc2q3DCxBa5hLyPyNCJEjK0yB9fienlWNVLV2Gog81o5Y8uxcLUPoJVsfwkDICdR+JWlUDrUjhLkKO2XZkgr0APHpkVLuYp7uNYX6g+AH28+NSewc3meiexC4DUWtKoUASS6sUriMEs/Tf3B6hgUR6bWaybTiIVkmTTiQlJc8uZtZckKss4yWpd4i+nLVcmTHywyyZUMBPTMi7pOEXWCkkQk5AkpPugtaRkiM9Gc7BpuS5BCIGPVmeD7LDEOB6B02GCkhRa0oCSZLeXZOftyxp4Ldcl6C5wjWxqC0B8HmfcXFKOHCzltuswJTDUs6mJlJ5EVhH76KQS7ilpC9rXux7ABYcnUWCcxRn3k9RBvYPlwaV1AuA7Z3HG3SQZQdC6vYOtAVijKUdLG4Yinmq4obifpC7qHTzSIERTSFLIxBl3kxR2UO9gpwJCNIUqWkRJunPFEwN89rZhD/Cxhs3BUkybByK+c/Ng4krfiiRvDiwfuLqQDPAV6iSLM+4lKQTbDtZS9D5m1jCwccadJBla0LqfTVkBDbWbO3QNzMYpd5K07aTeCcICDNDRDkHglMQpd5LUTb3Lup/sxghe3EVlcQqUNCN+AiWRN7mwdzaFDuimvUvZgWPaCiRAk8nYwxUQYtCSLFrSqCNJWxB2sZqUGKxFwVsGFhlvi1jXYTMoWbqOQ9gdDx0dZ6cH2JWJutCadUf1LiUK3IOmOpfibThTXGUVo0sJcbc+uq6rRuiYOvYGRsf1rnUppoHWUb3L1rbYTS7Huoj+6nR4yorZRAdHSd51Un05HA6Hw+FwOBwOh/OvwxhRvoZEVddWk7xI5+sx7a038UIkZzlh++F0tCJbIX0Nct9Xo5lkE3mXzBsoX4hwRlS+Jp6WWQJmxb6xwiVhqGjDbjUg/RNG5nsQch8EyvfJ/B7+6xf5PpWviQmAe0hVLfGITzQE9FD91ejW1JMISbkPQjKJfFHkky/CyX0RTL4ehnY0dV1cBACs0IMh2ZLjjiQJma8hlzTxwSKbUMFML/J5kefYJ7Ep8obSWFLiogefcG8Uj5/N20gKK3wPMfAtNm+4jSXFeLivD067UDh72N4GQlLqe0APHct9DzCvoLxZ5K+QNMFH2L65JLPC91Dqi7hCUs6CrHg3kVTle6Dy2EnSRlIEjnnXdBtJVb6HEcBdEJFvIwl1GYjbSIrz4edyk0CRn2pAOuVbSJpLxUG6kaTC91Bu5aDyHUiiRmBuI6nK9xBRbpbWFc+kBt9u1jy86XsozV8tydAoI+ttJHkDXLpy34NX5ou4WpI6pFwBt5FU5XuA10OHs/y1kkLXoeLbSEp9D2g7F3wPK+wdWBTd/pWSIm1Oz7iRpCrfQ56Pi/x1kmw8wK1jZd1Kym/hqnwPMI/mE3koiTQR1GOv4C4gxndejKGiDYZGFGmBznoP+yCE1MaNT6ALeZfI12Q/WPVGEDs8SsRR6kaSbsDTwjfzQfEYrKeiJ2mTC/kI5YMinwxg3mgyqC5GhH3/VEP0KezHD4749i9rYdr94XCojvJzdRS4s6U6vzpfA2t4HOagWyfRi2YwWPc6cD/IjmwYxtQpVjXdJvOmedlpUhQx/QkGzdLhFrLtdGB04XA4HA6Hw6li3rsNu5rXMnW3v6t/CduTbkNdn/ei7vrqv6+gizei6+3XVsThcDgcDofD+Tdg2PTjdcZ/V+XHO/Pn1SMJ1fWIGDSbxJvNet/J23OMH68qlhk/HhvX3Wo/e8YfYNuDHvmrfRIpbvuXHHXGj8f68y768aLyuCayC7SZK0FRezTDBmH6zwnav3isWzLlxyuPL/vx2Lgmod8T4bqH2GM4xzeQI9Dv4EE/ObB5Ic4lTRg/HuHPOzQoiuOiIRhZAWjUsYfeUE7H4tp/5KZEgnIW55JCxo9H+vManAVeeJrYnYwUEZBQS7EHXXxPoIEkyo8Xnsd1cfDb4pMBkoSlwaPdYDUXaSCJ8uMdsvhIxixjFnYB5+Q6ngYga2DMgeKcraU5DSSxfjy4c09C5kHJSfD0wPDCLmENTi3cDrara3GyVNp/bE9oJMlm/Hi0P+9suHb8ieEru0Qvb+DSEemDu27/IaKsyPUlsX48Or6iRzlI+VHp+enIffNVlNFAEuvHC4tPMSlAal5nvNzzm9rhYM/rL95Yuj4NJLF+vFJ/Xn0M7ZBf05lBaMJeSuq99YO6NGseKD/eLr92SpuHs0vO50eGz3R+nfuQBMuHXbUzA2DQwRejmkhi/Xil/ryC738w/KbSu2V+6sB6m56J0xUAxy7MHPUlsX48GA/JuBFeUByQEVCyR+DTI+jigyNNLohYP16ZP68mZkB8nkTFmzClLt74KZHUvxQneCee/HowRrua8OfVwwyw+S61QvXzTbiggwaC9ONlsXIWX/TjlfnzamEqp5Lri42YNqX4azDH9l+2Zfx4KKYu1wzSj5cAhfLjJegkIP15dbACbTSyITF6+QtefKBqOBmsWo8r6XLmt8v9dGexQccR49fDcaN96/mFHw/dVXjLwcKAN4Xusf0lUeqnOxB+uqpY2NN+PBgrVFwDY3M8YIanCjvpB7O1Oow78+MVfrqqmPXjncfV6MaZHw/ibBdmF3cWHA6Hw+FwOBwOh8PhcDgcDofDacT/AJA82QiSG/u9AAAAAElFTkSuQmCC" width="250" height="250">
-                <img src="data:image/png;base64,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 " width="260" height="250">
+                    </ul>
+                    <ul style="list-style: none; width:fit-content">
+                        <p id="inp1"></p>
+                        <p id="inp2"></p>
+                        <p id="inp3"></p>
+                    </ul>
+                </h4>
             </div>
-            <p id="inp1"></p>
-            <p id="inp2"></p>
-            <p id="inp3"></p>
+            <div id="det" style="display:block">
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-evenly;">
+                    <div style="display: block; width: 60%;">
+                <p><i>
+                    Binary numbers are used in computers to store and represent data using digits 0 and 1. There are two cases that come up while learning about binary addition, and those are given below:
+                    <ul>
+                    <li>Binary addition without regrouping</li>
+                    <li>Adding binary numbers with regrouping</li>
+                    </ul>
+                </p></i><br>
+                    </div>
+                    <img src="https://www.eecis.udel.edu/~davis/cpeg222/AssemblyTutorial/Chapter-08/binaryAdditionTable.gif" width="300" height="250"><br> <br>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-evenly;">
+                    <div style="display: block; width: 60%;">
+                <h3><b>
+                    Binary Addition without Regrouping</b></h3><br>
+                    <p>When the addition of two digits results in 0 or 1, then we don't need to regroup while adding two or more binary numbers. </p>
+                    <h3><b>
+                        Adding Binary Numbers with Regrouping</b></h3><br>
+                        <p>When the addition of two digits results in a number greater than 1, then we need to regroup while adding two or more binary numbers. </p>
+                    </div>
+                    <img src="data:image/png;base64,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" width="250" height="250">
+                    <img src="data:image/png;base64,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 " width="250" height="250">
+                </div>
+            </div>  
         </div>
     </div>
     
@@ -122,8 +129,6 @@
         //addition of two binary inputs
         c = a+b;
         document.getElementById("result").style.display="block";
-        document.getElementById("exp").style.display="none";
-        document.getElementById("det").style.display="none";
         document.getElementById("result").innerText ='The sum of binary numbers is ' + c.toString(2);
     }
     function disp(){
@@ -131,11 +136,11 @@
 
         let y = document.getElementById("b").value; // Storing input B
 
-        document.getElementById("inp1").innerText ='  '+x.toString(2);
-        document.getElementById("inp2").innerText ='+'+y.toString(2)
-        document.getElementById("inp3").innerText =''+c.toString(2);
-        document.getElementById("inp2").style.display="block";
+        document.getElementById("inp1").innerHTML = ' '+x.toString(2);
+        document.getElementById("inp2").innerHTML = "+"+y.toString(2);
+        document.getElementById("inp3").innerHTML = '  '+c.toString(2);
         document.getElementById("resultId").style.display = "block";
+
     }
 </script>
 
