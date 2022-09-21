@@ -65,9 +65,17 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
            <input type="number" min="0" max="1" class="form-control" id="a" >
             </div >
             <div class="col-sm-2">
-           <input type="number" min="0" max="1" class="form-control" id="b" onchange="fun()">
-            </div><br><br>
-        <h3  class="alert alert-primary" id="submit" style="margin-top: 30px;"></h3>
+           <input type="number" min="0" max="1" class="form-control" id="b">
+            </div>
+            <div class="col-sm-2">
+                <button class="badge bg-primary" style="font-size:large;border-radius:5px" onclick="fun()">Submit</button>
+             </div>
+            <br><br>
+            <div class="alert alert-primary">
+                <h3   id="submit" style="margin-top: 10px;"></h3>
+                <h3   id="submit1" style="margin-top: 10px;"></h3>
+                <h3   id="submit2" style="margin-top: 10px;"></h3>
+            </div>
         <div>
         <button class="badge bg-primary" onclick="disp()" style="margin-left:5% ; font-size: large;"> Detailed Answer</button><br><br>
         <div class="detail" id="result" style="display:none">
@@ -91,9 +99,9 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
                 
                 
                 
-                document.getElementById("submit").innerHTML+=`The Output Q is ${t[c]}<br><br>`
-                document.getElementById("submit").innerHTML+=`The Output ~Q is ${u[c]}<br><br>`
-                document.getElementById("submit").innerHTML+=`The State of the flip-flop is ${v[c]}`
+                document.getElementById("submit").innerHTML=`The Output Q is ${t[c]}<br><br>`
+                document.getElementById("submit1").innerHTML=`The Output ~Q is ${u[c]}<br><br>`
+                document.getElementById("submit2").innerHTML=`The State of the flip-flop is ${v[c]}`
             }
         function disp(){
                 document.getElementById("result").style.display="block";
