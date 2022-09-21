@@ -34,9 +34,17 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
            <input type="number" min="0" max="1" class="form-control" id="a" >
            </div >
            <div class="col-sm-2">
-           <input type="number" min="0" max="1" class="form-control" id="b" onchange="fun()">
-        </div><br><br>
-        <h3  class="alert alert-primary" id="submit" style="width:50%; margin-left:100px ; margin-top: 30px;"></h3>
+           <input type="number" min="0" max="1" class="form-control" id="b">
+        </div>
+        <div class="col-sm-2">
+            <button class="badge bg-primary" style="font-size:large;border-radius: 5px;" onclick="fun1()">Submit</button>
+            </div>
+        <br><br>
+        <div class="alert alert-primary" >
+        <h3  id="submit" style="margin-top: 10px;"></h3>
+        <h3  id="submit1" style="margin-top: 10px;"></h3>
+        <h3  id="submit2" style="margin-top: 10px;"></h3>
+        </div>
     <div>
         <button class="badge bg-primary" onclick="disp()" style="margin-left: 5% ; font-size:large ">Detailed Answer</button><br><br>
         <div class="diagram" id="output" style="display:none">
@@ -52,22 +60,29 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
 
 
 <script>
+    function fun1(){
+        fun();
+        document.getElementById("submit").innerHTML+=''
+        document.getElementById("submit").innerHTML+=''
+        document.getElementById("submit").innerHTML+=''
+    }
      function fun(){
-                var S = document.getElementById("a").value;
-                var R = document.getElementById("b").value;
-                c=S + R;
-                var t={'00':'0','01':'0','10':'1',"11":'1','11':'0'}
-                var u={'00':'1','01':'1','10':'0',"11":'0','11':'1'}
-                var v = {'00':'Previous','01':'Reset','10':'Set',"11":'Toggle'}
+        var S = document.getElementById("a").value;
+        var R = document.getElementById("b").value;
+        c=S + R;
+        var t={'00':'0','01':'0','10':'1',"11":'1','11':'0'}
+        var u={'00':'1','01':'1','10':'0',"11":'0','11':'1'}
+        var v = {'00':'Previous','01':'Reset','10':'Set',"11":'Toggle'}
                 
                 
                 
-                document.getElementById("submit").innerHTML+=`The Output Q is ${t[c]}<br><br>`
-                document.getElementById("submit").innerHTML+=`The Output ~Q is ${u[c]}<br><br>`
-                document.getElementById("submit").innerHTML+=`The State of the flip-flop is ${v[c]}`
-            }
+        document.getElementById("submit").innerHTML=`The Output Q is ${t[c]}<br><br>`
+        document.getElementById("submit1").innerHTML=`The Output ~Q is ${u[c]}<br><br>`
+        document.getElementById("submit2").innerHTML=`The State of the flip-flop is ${v[c]}`                       
+    }
+            
     function disp(){
-                document.getElementById("output").style.display="block"
+        document.getElementById("output").style.display="block"
     }
 </script>
 </body>
