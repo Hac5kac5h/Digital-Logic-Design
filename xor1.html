@@ -6,6 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xor</title>
     <style>
+        .images{
+                display: flex;
+                flex-direction: row;
+        }      
+        .nand{
+            width: 200px;
+            height: 100px;
+        }
+        .nor{
+            width: 200px;
+            height: 100px;
+        }
+        .cmos{
+            width: 200px;
+            height: 100px;
+        }
+        .img1{
+            margin-top: 5%;
+        }
+        .img2{
+            margin-top: 5%;
+        }
+        .img3{
+            margin-top: 5%;
+        }
         #inp,#out{
             display:none;
         }
@@ -13,6 +38,9 @@
             display:flex;
             flex-direction:row ;
             margin:0 30%;
+        }
+        .img5{
+            margin-top: -150%;
         }
         .a{
             margin-top:18px;
@@ -33,6 +61,112 @@
             margin-left:15px;
             color:blue;
         }
+        @media screen and (max-width:900px) {
+
+            .container{
+            position:relative;
+            overflow-x: hidden;
+            }
+            .images{
+                display: flex;
+                flex-direction: column;
+            }
+            .nor{
+                margin-top: 50%;
+                margin-left: 55%;
+            }
+            .cmos{
+                margin-top: 50%;
+                margin-left: 55%;
+            }
+            .img1{
+                width: 250px;
+                height: 250px;
+                margin-top: 5%;
+            }
+            .img2{
+                width: 250px;
+                height: 250px;
+                margin-top: 5%;
+            }
+            .img3{
+                width: 250px;
+                height: 250px;
+                margin-top: 5%;
+            }
+            .img4{
+                width: 250px;
+                height: 250px;
+                margin-top: 5%;
+            }
+            .img5{
+                width: 250px;
+                height: 250px;
+                margin-top: 400%;
+                margin-left: -275%;
+            }
+            .imgdet1{
+                width: 100px;
+                height: 100px;
+                margin-top: 60%;
+                
+            }
+            .trans{
+                margin-top: 120%;
+                margin-left: -75%;
+                width: 200px;
+            }
+            .imgdet2{
+                width: 250px;
+                height: 250px;
+                margin-top: 15%;
+                margin-left: -75%;
+            }
+            .iec{
+                width: 200px;
+                height: 100px;
+                margin-left: -75%;
+            }
+            .din{
+                width: 200px;
+                height: 100px;
+                margin-left: -45%;
+            }
+            .imgdet3{
+                width: 200px;
+                height: 150px;
+                margin-top: 105%;
+                margin-left: -100%;
+            }
+            .imgdet4{
+                width: 200px;
+                height: 150px;
+                margin-top: 105%;
+                margin-left: -100%;
+            }
+            #inp{
+                margin-top: 45%;
+                margin-left: -75%;
+            }
+            #m{
+                margin-left: 30%;
+            }
+            #a1{
+                margin-top:-10px;
+                font-size:medium;
+                margin-left: 300%;
+            }
+            #b2{
+                margin-top:-3px;
+                font-size: medium;
+                margin-left: 300%;
+            }
+            #o3{
+                margin-top: 95px;
+                font-size: medium;
+            }
+
+        }
     </style>
     
     <!-- CSS only -->
@@ -46,22 +180,28 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
         <input type="number"  id ="a" style="border-radius: 7px; border: 3px solid; margin-left: 50px; " placeholder="input1">
         <input type="number"  id ="b" style="border-radius: 7px; border: 3px solid; margin-left: 50px; " placeholder="input2">
         <button type="button" class="btn btn-primary" onclick="xor()">Submit</button><br><br>
-        <h3 class="alert alert-primary"  id="result" style="width:fit-content; margin-left:50px;display:none ;" > </h3>
+        <h3 class ="alert alert-primary"  id="result" style="width:fit-content; margin-left:50px;display:none ;" > </h3>
         <br><br>
-        <div class="container">
+        <div class="contain">
             <button class="badge bg-primary" onclick="disp()" style="font-size:large;margin-left: 41px;"><em>Detailed Answer</em></button><br><br><br>
             <div id="exp" style="display:block">
                 <h3>Different Combinations Of XOR GATE using NAND & NOR Gates </h3><br>
-                <p>Using NAND GATE</p> <p style="margin-left:30%;margin-top:-3%;">Using NOR GATE</p><p style="margin-left:65%;margin-top:-3%;">CMOS XOR GATE</p>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/XOR_from_NAND.svg/600px-XOR_from_NAND.svg.png" width="350" height="300">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/XOR_from_NOR.svg/640px-XOR_from_NOR.svg.png" width="350" height="300"> 
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/CMOS_XOR_Gate.svg/600px-CMOS_XOR_Gate.svg.png" height="300"><br> <br>
-                <h5>Exclusive or or exclusive disjunction is a logical operation that is true if and only if its arguments differ.</h5>
-                <div><center><h5>Exclusive</h5>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Venn0110.svg/640px-Venn0110.svg.png" width="200" height="200"></center>
+               <div class="images"> 
+                    <p class="nand"><b>Using NAND GATE</b></p> 
+                    <img class="img1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/XOR_from_NAND.svg/600px-XOR_from_NAND.svg.png" width="350" height="300">
+
+                    <p class="nor" style="margin-left:10%;margin-top:3%;"><b>Using NOR GATE</b></p>
+                    <img class="img2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/XOR_from_NOR.svg/640px-XOR_from_NOR.svg.png" width="350" height="300"> 
+                    
+                    <p class="cmos" style="margin-left:10%;margin-top:3%;"><b>CMOS XOR GATE</b></p>
+                    <img class="img3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/CMOS_XOR_Gate.svg/600px-CMOS_XOR_Gate.svg.png" height="300"><br> <br>
                 </div>
-                <div style="margin-top:-80%;margin-left:75%">
-                    <img src="https://instrumentationtools.com/wp-content/uploads/2016/07/instrumentationtools.com_xor-gate-logic-animation.gif" width="300" height="300">
+                <h5>Exclusive or or exclusive disjunction is a logical operation that is true if and only if its arguments differ.</h5>
+                <div><h5>Exclusive</h5>
+                    <img class="img4" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Venn0110.svg/640px-Venn0110.svg.png" width="200" height="200">
+                </div>
+                <div style="margin-top:-45%;margin-left:75%">
+                    <img class="img5" src="https://instrumentationtools.com/wp-content/uploads/2016/07/instrumentationtools.com_xor-gate-logic-animation.gif" width="300" height="300">
                 </div>
                 
             </div>
@@ -83,22 +223,22 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
 
                 <div id="detail1">
                     <div id="inp">
-                        <div class="a"><h2 id="1"></h2></div>
-                        <div class="b"><h2 id="2"></h2></div>
+                        <div class="a"><h2 id="a1"></h2></div>
+                        <div class="b"><h2 id="b2"></h2></div>
                     </div>
                     <div style="display:none" id="m">
-                        <center><img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/XOR_ANSI.svg/200px-XOR_ANSI.svg.png" width="350",height="300"></center>
+                        <img class="imgdet1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/XOR_ANSI.svg/200px-XOR_ANSI.svg.png" width="350",height="300">
                     </div>
                     <div id="out">
-                        <div class="output"><h2 id="3"></h2></div>
+                        <div class="output"><h2 id="o3"></h2></div>
                     </div>
                     <div id="ex" style="margin-top:-95%;margin-left:40%;display: none;">
-                        <P>Transmission Gate Logic wiring of an XOR gate</P>
-                        <img src="https://upload.wikimedia.org/wikipedia/en/7/7b/TransmissionCmosXORGate.png" width="300" height="300"><br> <br> 
-                        <b>IEC XOR Schematic Symbol(Exclusive GATE)	</b>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/XOR_IEC.svg/200px-XOR_IEC.svg.png"><br>
-                        <b>DIN XOR Schematic Symbol</b>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/XOR_DIN.svg/200px-XOR_DIN.svg.png">
+                        <P class="trans">Transmission Gate Logic wiring of an XOR gate</P>
+                        <img class="imgdet2" src="https://upload.wikimedia.org/wikipedia/en/7/7b/TransmissionCmosXORGate.png" width="300" height="300"><br> <br> 
+                        <b class="iec">IEC XOR Schematic Symbol(Exclusive GATE)	</b>
+                        <img class="imgdet3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/XOR_IEC.svg/200px-XOR_IEC.svg.png"><br>
+                        <b class="din">DIN XOR Schematic Symbol</b>
+                        <img class="imgdet4" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/XOR_DIN.svg/200px-XOR_DIN.svg.png">
                     </div>
                 </div>
           
@@ -128,9 +268,9 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
             document.getElementById("detail").style.display="block";
 
             document.getElementById("out").style.display="block";
-            document.getElementById("1").innerHTML=`<p>${r}</p>`
-            document.getElementById("2").innerHTML=`<p>${p}</p>`
-            document.getElementById("3").innerHTML=`<p>${c}</p>`
+            document.getElementById("a1").innerHTML=`<p>${r}</p>`
+            document.getElementById("b2").innerHTML=`<p>${p}</p>`
+            document.getElementById("o3").innerHTML=`<p>${c}</p>`
            
            
 
