@@ -8,7 +8,20 @@
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
 integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        @media  screen and (max-width:900px){
+            .img{
+                
+                margin-left:-5px;
+            }
+            .img1{
+                margin-top: 40%;
+                margin-left:-40%;
+            }
 
+            
+        }
+    </style>
 </head>
 <body style="background-color:powderblue">
     <div class="container">
@@ -29,12 +42,16 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
                <label for="input" class="form-label fs-3" style="color:green">Enter Select lines </label>
             </div>
             <div class="col-sm-2">
-               <input type="number" min="0" max="1" class="form-control" id="a" >
+               <input type="number"  class="form-control" id="a">
                </div >
                <div class="col-sm-2">
-               <input type="number" min="0" max="1" class="form-control" id="b" onchange="fun()">
-            </div><br><br>
-            <h3  class="alert alert-primary" id="submit" style="width:50%; margin-left:100px ; margin-top: 30px;"></h3>
+               <input type="number"  class="form-control" id="b">
+               </div>
+               <div class="col-sm-2">
+                <button class="badge bg-primary" style="font-size:large;border-radius: 5px;" onclick="fun()">Submit</button>
+                </div>
+               <br><br>
+            <h3  class="alert alert-primary" id="submit" style="  margin-top: 30px;"></h3>
 
         </div><br>
         <h4 id="out" style="margin-left:20%"></h4><br>
@@ -42,10 +59,10 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
         <button class="badge bg-primary" id="result" onclick = "disp()" style="font-size:large ; margin-left: 60px"> Detailed Answer</button><br><br>
         <div class="diagram" id="output" style="display:none">
         <div class="circuit" style="margin-left:10%">
-            <img src="https://static.javatpoint.com/tutorial/digital-electronics/images/multiplexer4.png">
+            <img class="img" src="https://static.javatpoint.com/tutorial/digital-electronics/images/multiplexer4.png">
         </div>
         <div class="Truth table" style="margin-left: 50% ; margin-top: -25%;">
-            <img src="https://www.electronicshub.org/wp-content/uploads/2015/07/4-to-1-MUX-Truth-Table.jpg">
+            <img class="img1" src="https://www.electronicshub.org/wp-content/uploads/2015/07/4-to-1-MUX-Truth-Table.jpg">
         </div>
         </div>
     </div>
@@ -54,7 +71,7 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
                 var So = document.getElementById("a").value;
                 var S1 = document.getElementById("b").value;
                 c=So + S1;
-                document.getElementById("submit").innerHTML=`The Output Signal is ${"D"+parseInt(c,2)}`
+                document.getElementById("submit").innerText=`The Output Signal is ${"D"+parseInt(c,2)}`
             }
         function disp(){
             document.getElementById("output").style.display="block";
