@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>And</title>
     <style>
+        .container{
+            position:relative;
+            overflow-x: hidden;
+        }
         #inp,#out{
             display:none;
         }
@@ -33,6 +37,73 @@
             margin-left:15px;
             color:blue;
         }
+        .img5{
+            margin-left: 25%;
+        }
+        @media screen and (max-width:700px) {
+            .container{
+            position:relative;
+            overflow-x: hidden;
+            }
+            .img1{
+                width: 250px;
+                height: 250px;
+                margin-top: 5%;
+            }
+            .img2{
+                width: 250px;
+                height: 250px;
+                margin-top: 5%;
+            }
+            .img3{
+                width: 250px;
+                height: 250px;
+                margin-top: 5%;
+            }
+            .img4{
+                width: 250px;
+                height: 250px;
+                margin-top: 5%;
+            }
+            .img5{
+                width: 250px;
+                height: 250px;
+                margin-top: 5%;
+                margin-left: -3%;
+            }
+            .imgdet1{
+                width: 150px;
+                height: 150px;                
+            }
+            .imgdet2{
+                width: 250px;
+                height: 200px;
+                margin-top: 160%;
+                margin-left: -105%;
+            }
+            .imgdet3{
+                width: 250px;
+                height: 200px;
+                margin-top: 15%;
+                margin-left: -105%;
+            }
+            .imgdet4{
+                width: 250px;
+                height: 200px;
+                margin-top: 15%;
+                margin-left: -105%;
+            }
+            #inp{
+                margin-top: 20%;
+                margin-left: -35%;
+            }
+            #a3{
+                margin-top: 50%;
+            }
+            .b{
+                margin-top: 10px;
+            }
+        }
     </style>
     
     <!-- CSS only -->
@@ -48,19 +119,18 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
         <button type="button" class="btn btn-primary" onclick="and()">Submit</button><br><br>
         <h3 class="alert alert-primary"  id="result" style=" width:fit-content;margin-left:50px;display: none;" > </h3>
         <br><br>
-        <div class="container">
+        <div class="contain">
             <button class="badge bg-primary" onclick="disp()" style="font-size:large;margin-left: 41px;"><em>Detailed Answer</em></button><br><br><br>
             <div id="exp" style="display:block">
                 <h3>Different Combinations Of AND GATE </h3><br>
-                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20220217150813/Screenshot38-300x187.png" width="450" height="300">
-                <img src="http://circuitspedia.com/wp-content/uploads/2019/01/AND-GATE-IC.jpg" width="450" height="300"> 
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/NMOS_AND_gate.png" height="300"><br> <br>
+                <img class="img1" src="https://media.geeksforgeeks.org/wp-content/uploads/20220217150813/Screenshot38-300x187.png" width="450" height="300">
+                <img class="img2" src="http://circuitspedia.com/wp-content/uploads/2019/01/AND-GATE-IC.jpg" width="450" height="300"> 
+                <img class="img3" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/NMOS_AND_gate.png" height="300"><br> <br>
                 <h5>In logic, mathematics and linguistics, And is the truth-functional operator of logical conjunction; the and of a set of operands is true if and only if all of its operands are true.</h5>
-                <div><center><h5>Conjunction</h5>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Venn0001.svg/640px-Venn0001.svg.png" width="200" height="200"></center>
-                </div>
-                <div style="margin-top:-75%;margin-left:75%">
-                    <img src="https://instrumentationtools.com/wp-content/uploads/2016/07/instrumentationtools.com_and-gate-logic-animation.gif" width="300" height="300">
+                <div><h5>Conjunction</h5>
+                    <img class="img4" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Venn0001.svg/640px-Venn0001.svg.png" width="200" height="200">
+                    <img class="img5" src="https://instrumentationtools.com/wp-content/uploads/2016/07/instrumentationtools.com_and-gate-logic-animation.gif" width="300" height="300">
+
                 </div>
                 
             </div> 
@@ -74,8 +144,7 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
                     <li><p>1 & 0 = 0</p></li>
                     <li><p>1 & 1 = 1</p></li>
                 </ul> </h5>
-            </div>  
-        </div>
+            </div>
     
 
 
@@ -85,21 +154,21 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
                         <div class="b"><h2 id="2"></h2></div>
                     </div>
                     <div style="display:none" id="m">
-                        <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/AND_ANSI_Labelled.svg/240px-AND_ANSI_Labelled.svg.png" width="350",height="300">
+                        <img class="imgdet1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/AND_ANSI_Labelled.svg/240px-AND_ANSI_Labelled.svg.png" width="350",height="300">
                         
                     </div>
                     <div id="out">
-                        <div class="output"><h2 id="3"></h2></div>
+                        <div class="output"><h2 id="a3"></h2></div>
                     </div>
                     <div id="ex" style="margin-top:-95%;margin-left:40%;display: none;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/DiodeANDgate.png/259px-DiodeANDgate.png"width="200" height="200"><br> <br>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/TransistorANDgate.png/247px-TransistorANDgate.png"width="200" height="200"><br> <br>
-                        <b>Conjunction(OR GATE)</b><br> <br>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/AND_IEC_Labelled.svg/240px-AND_IEC_Labelled.svg.png">
+                        <img class="imgdet2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/DiodeANDgate.png/259px-DiodeANDgate.png"width="200" height="200"><br> <br>
+                        <img class="imgdet3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/TransistorANDgate.png/247px-TransistorANDgate.png"width="200" height="200"><br> <br>
+                        <img class="imgdet4" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/AND_IEC_Labelled.svg/240px-AND_IEC_Labelled.svg.png">
                     </div>
                 </div>
           
-    </div>            
+    </div> 
+</div>           
     <script>
         var n=0;
         var p=0;
@@ -127,7 +196,7 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
             document.getElementById("out").style.display="block";
             document.getElementById("1").innerHTML=`<p>${r}</p>`
             document.getElementById("2").innerHTML=`<p>${p}</p>`
-            document.getElementById("3").innerHTML=`<p>${c}</p>`
+            document.getElementById("a3").innerHTML=`<p>${c}</p>`
            
 
          }
