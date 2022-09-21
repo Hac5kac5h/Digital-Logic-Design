@@ -33,6 +33,85 @@
             margin-left:15px;
             color:blue;
         }
+        @media screen and (max-width: 900px) {
+            .container{
+            position:relative;
+            overflow-x: hidden;
+            }
+            .img1{
+                width: 250px;
+                height: 250px;
+                margin-top: 5%;
+            }
+            .img2{
+                width: 250px;
+                height: 250px;
+                margin-top: 5%;
+            }
+            .img3{
+                width: 250px;
+                height: 250px;
+                margin-top: 5%;
+            }
+            .img4{
+                width: 250px;
+                height: 250px;
+                margin-top: 5%;
+            }
+            .img5{
+                width: 250px;
+                height: 250px;
+                margin-top: 325%;
+                margin-left: -275%;
+            }
+            .imgdet1{
+                width: 150px;
+                height: 150px;
+                margin-top: 25%;
+                margin-left: -45%;
+            }
+            .imgdet2{
+                width: 200px;
+                height: 150px;
+                margin-top: 155%;
+                margin-left: -125%;
+            }
+            .imgdet3{
+                width: 200px;
+                height: 150px;
+                margin-top: 15%;
+                margin-left: -125%;
+            }
+            .imgdet4{
+                width: 200px;
+                height: 150px;
+                margin-top: 15%;
+                margin-left: -125%;
+            }
+            #inp{
+                margin-top: 45%;
+                margin-left: -45%;
+            }
+            #m{
+                margin-left: 30%;
+            }
+            .output{
+                margin-top: 825%;
+                margin-left: -300%;
+            }
+            #ex{
+                display: flex;
+                flex-direction: column;
+            }
+            #btag{
+                margin-top: 75%;
+                margin-left: -125%;
+
+            }
+            #btag1{
+                margin-left: -250%;
+            }
+        }
     </style>
     
     <!-- CSS only -->
@@ -43,25 +122,25 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
 <body style="background-color:powderblue">
     <div class="container">
         <center><h1 style="color:blue"><i>OR Gate Operation</i></h1></center><br>
-        <input type="number"  id ="a" style="border-radius: 7px; border: 3px solid; margin-left: 50px; " placeholder="input1">
-        <input type="number"  id ="b" style="border-radius: 7px; border: 3px solid; margin-left: 50px; " placeholder="input2">
+        <input type="number"  id ="a" style="border-radius: 7px; border: 3px solid; margin-left: 50px;  " placeholder="input1" >
+        <input type="number"  id ="b" style="border-radius: 7px; border: 3px solid; margin-left: 50px; " placeholder="input2" >
         <button type="button" class="btn btn-primary" onclick="or()">Submit</button><br><br>
         <h3 class="alert alert-primary"  id="result" style=" width:fit-content;margin-left:50px;display: none;" > </h3>
         <br><br>
-        <div class="container">
+        <div class="contain">
             <button class="badge bg-primary" onclick="disp()" style="font-size:large;margin-left: 41px;"><em>Detailed Answer</em></button><br><br><br>
             <div id="exp" style="display:block">
                 <h3>Different Combinations Of OR GATE </h3><br>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/CMOS_OR.svg/510px-CMOS_OR.svg.png" width="450" height="300">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/CMOS_4071_diagram.svg/400px-CMOS_4071_diagram.svg.png" width="450" height="300"> 
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/NMOS_OR_gate.png" height="300"><br> <br>
+                <img class="img1"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/CMOS_OR.svg/510px-CMOS_OR.svg.png" width="450" height="300">
+                <img class="img2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/CMOS_4071_diagram.svg/400px-CMOS_4071_diagram.svg.png" width="450" height="300"> 
+                <img class="img3" src="https://upload.wikimedia.org/wikipedia/commons/3/30/NMOS_OR_gate.png" height="300"><br> <br>
                 <h5>In logic, disjunction is a logical connective typically notated as  and read outloud as "or". </h5>
                 <div><center><h5>Disjunction</h5>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Venn0111.svg/640px-Venn0111.svg.png"width="200" height="200"></center>
+                    <img class="img4" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Venn0111.svg/640px-Venn0111.svg.png"width="200" height="200"></center>
 
                 </div>
                 <div style="margin-top:-75%;margin-left:75%">
-                    <img src="https://instrumentationtools.com/wp-content/uploads/2016/07/instrumentationtools.com_or-gate-logic-animation.gif" width="300" height="300">
+                    <img class="img5" src="https://instrumentationtools.com/wp-content/uploads/2016/07/instrumentationtools.com_or-gate-logic-animation.gif" width="300" height="300">
                 </div>
                 
             </div> 
@@ -86,17 +165,15 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
                         <div class="b"><h2 id="2"></h2></div>
                     </div>
                     <div style="display:none" id="m">
-                        <center><img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/OR_ANSI_Labelled.svg/518px-OR_ANSI_Labelled.svg.png" width="350",height="300"></center>
+                        <center><img class="imgdet1"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/OR_ANSI_Labelled.svg/518px-OR_ANSI_Labelled.svg.png" width="350",height="300"></center>
                     </div>
                     <div id="out">
                         <div class="output"><h2 id="3"></h2></div>
                     </div>
                     <div id="ex" style="margin-top:-95%;margin-left:40%;display: none;">
-                        <b>OR gate using diodes</b><br> <br>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Diode_OR_Gate.svg/340px-Diode_OR_Gate.svg.png"width="200" height="200"><br> <br>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Transistor_OR_Gate.png/238px-Transistor_OR_Gate.png"width="200" height="200"><br> <br>
-                        <b>Disjunction(OR GATE)</b><br> <br>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/OR_IEC_Labelled.svg/240px-OR_IEC_Labelled.svg.png">
+                        <img class="imgdet2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Diode_OR_Gate.svg/340px-Diode_OR_Gate.svg.png"width="200" height="200"><br> <br>
+                        <img class="imgdet3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Transistor_OR_Gate.png/238px-Transistor_OR_Gate.png"width="200" height="200"><br> <br>
+                        <img class="imgdet4"src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/OR_IEC_Labelled.svg/240px-OR_IEC_Labelled.svg.png">
                     </div>
                 </div>
           
@@ -104,7 +181,7 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
     <script>
         var n=0;
         var p=0;
-       function or(){
+        function or(){
         var x=document.getElementById("a").value;
         var y=document.getElementById("b").value;
         if((x == 0 || x==1) && (y == 0 || y == 1)){
