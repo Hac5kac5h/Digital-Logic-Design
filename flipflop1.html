@@ -57,16 +57,25 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
            <input type="number" min="0" max="1" class="form-control" id="a" >
             </div >
             <div class="col-sm-2">
-           <input type="number" min="0" max="1" class="form-control" id="b" onchange="fun()">
+           <input type="number" min="0" max="1" class="form-control" id="b" >
+            </div>
+            <div class="col-sm-2">
+                <button class="badge bg-primary" style="font-size:large;border-radius: 5px;" onclick="fun()">Submit</button>
             </div><br><br>
-        <h3  class="alert alert-primary" id="submit" style="margin-top: 30px;"></h3>
+            <div class="alert alert-primary">
+                <h3   id="submit" style="margin-top: 10px;"></h3>
+                <h3   id="submit1" style="margin-top: 10px;"></h3>
+                <h3   id="submit2" style="margin-top: 10px;"></h3>
+            </div>
+        
+        
         <div>
         <button class="badge bg-primary" onclick="disp()" style="margin-left:5% ; font-size: large;"> Detailed Answer</button><br><br>
             <div class="diagram" id="output" style="display:none">
-            <div class="circuit" style="margin-left:15% ">
+            <div class="circuit" style="margin-left:10% ">
                 <img class ="img" src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2017/01/D-logic-diag.png">
             </div>
-            <div class="Truth table" style="margin-left:50% ; margin-top:-12%">
+            <div class="Truth table" style="margin-left:50% ; margin-top:-15%">
                 <img class="img1" src="https://instrumentationtools.com/wp-content/uploads/2018/08/D-Flip-Flop-Truth-Table.png">
 
             </div>
@@ -84,13 +93,13 @@ integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmV
                 
                 
                 
-                document.getElementById("submit").innerHTML+=`The Output Q is ${t[c]}<br><br>`
-                document.getElementById("submit").innerHTML+=`The Output ~Q is ${u[c]}<br><br>`
-                document.getElementById("submit").innerHTML+=`The State of the  D flip-flop is ${v[c]}`
+                document.getElementById("submit").innerHTML=`The Output Q is ${t[c]}<br><br>`
+                document.getElementById("submit1").innerHTML=`The Output ~Q is ${u[c]}<br><br>`
+                document.getElementById("submit2").innerHTML=`The State of the  D flip-flop is ${v[c]}`
             }
-    function disp(){
+        function disp(){
                 document.getElementById("output").style.display="block"
-    }
+        }
 </script>
 </body>
 </html>
