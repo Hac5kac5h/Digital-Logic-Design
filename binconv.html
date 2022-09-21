@@ -36,7 +36,7 @@
                 </div><br><br><br>
             </div>
             <p class="fs-3" id="disp" style="display:none; margin-left:8.5%"></p>
-           <div >
+           <div id="expl">
               <p class="alert alert-primary fs-3" id="con" style="display:none"></p>
               <p class="alert alert-primary fs-3" id="con2" style="display:none"></p>
               <p class="alert alert-primary fs-3" id="con3" style="display:none"></p>
@@ -57,6 +57,8 @@
                         continue;
                     else
                     {
+                        document.getElementById("expl").style.display="none";
+                        document.getElementById("exp").style.display="none";
                         var t = document.getElementById("disp");
                         t.innerHTML = 'Invalid input';
                         t.style.display = 'block';
